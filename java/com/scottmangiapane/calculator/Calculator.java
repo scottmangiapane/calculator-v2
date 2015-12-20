@@ -60,7 +60,8 @@ public class Calculator {
         if (text.length() > 0
                 && isNumber(text.charAt(text.length() - 1)))
             text += " * ";
-        text += "π";
+        if (text.length() > 0 && text.charAt(text.length() - 1) != '.')
+            text += "π";
         update();
     }
 
