@@ -35,7 +35,7 @@ public class EquationSolver {
     }
 
     private String operation(String s, String op1, String op2) {
-        s = " " + s + " ";
+        s = " " + s.replace("π", "" + Math.PI) + " ";
         while (s.contains(op1) || s.contains(op2)) {
             String operator;
             if (s.indexOf(op2) < s.indexOf(op1))

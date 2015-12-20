@@ -12,22 +12,26 @@ public class Calculator {
         update();
     }
 
-    public void inputDigit(char digit) {
+    public void digit(char digit) {
         if (text.length() >= 3
                 && isOperator(text.charAt(text.length() - 1))
-                && Character.isDigit(text.charAt(text.length() - 3)))
+                && isNumber(text.charAt(text.length() - 3)))
             text += " ";
-        text += digit;
+        if (text.length() > 0
+                && isNumber(text.charAt(text.length() - 1))
+                && !Character.isDigit(text.charAt(text.length() - 1)))
+            text += " * ";
+        text += "" + digit;
         update();
     }
 
-    public void dot() {
+    public void decimal() {
         if (getLast().indexOf('.') == -1)
             if (text.length() > 0 && Character.isDigit(text.charAt(text.length() - 1)))
                 text += ".";
             else {
-                inputDigit('0');
-                dot();
+                digit('0');
+                decimal();
             }
         update();
     }
@@ -36,15 +40,27 @@ public class Calculator {
         if (operator == '-' && (text.length() == 0
                 || (isOperator(text.charAt(text.length() - 1))
                 && (text.length() >= 3
-                && Character.isDigit(text.charAt(text.length() - 3)))))) {
+                && isNumber(text.charAt(text.length() - 3)))))) {
             text = (text + " " + operator).trim();
         } else if (text.length() > 0 && isOperator(text.charAt(text.length() - 1))) {
             if (text.length() >= 3 && isOperator(text.charAt(text.length() - 3)))
                 text = text.substring(0, text.length() - 3) + operator;
             else if (text.length() >= 3)
                 text = text.substring(0, text.length() - 1) + operator;
-        } else if (text.length() > 0 && Character.isDigit(text.charAt(text.length() - 1)))
+        } else if (text.length() > 0 && isNumber(text.charAt(text.length() - 1)))
             text += " " + operator;
+        update();
+    }
+
+    public void pi() {
+        if (text.length() >= 3
+                && isOperator(text.charAt(text.length() - 1))
+                && isNumber(text.charAt(text.length() - 3)))
+            text += " ";
+        if (text.length() > 0
+                && isNumber(text.charAt(text.length() - 1)))
+            text += " * ";
+        text += "π";
         update();
     }
 
@@ -79,6 +95,16 @@ public class Calculator {
         update();
     }
 
+    private boolean containsOperator(String s) {
+        if (s.contains("/")
+                || s.contains("*")
+                || s.contains("-")
+                || s.contains("+")
+                || s.contains("^"))
+            return true;
+        return false;
+    }
+
     private boolean containsPaddedOperator(String s) {
         if (s.contains(" / ")
                 || s.contains(" * ")
@@ -96,8 +122,14 @@ public class Calculator {
         return "";
     }
 
+    private boolean isNumber(char c) {
+        if (Character.isDigit(c) || c == 'π')
+            return true;
+        return false;
+    }
+
     private boolean isOperator(char c) {
-        if (c == '/' || c == '*' || c == '-' || c == '+'|| c == '^')
+        if (c == '/' || c == '*' || c == '-' || c == '+' || c == '^')
             return true;
         return false;
     }

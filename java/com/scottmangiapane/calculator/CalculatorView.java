@@ -55,9 +55,9 @@ public class CalculatorView implements CalculatorViewInterface {
                     @Override
                     public void onClick(View v) {
                         if (Character.isDigit(input.charAt(0)))
-                            calculator.inputDigit(input.charAt(0));
+                            calculator.digit(input.charAt(0));
                         if (input.equals("."))
-                            calculator.dot();
+                            calculator.decimal();
                         if (input.equals("÷"))
                             calculator.operator('/');
                         if (input.equals("×"))
@@ -68,6 +68,8 @@ public class CalculatorView implements CalculatorViewInterface {
                             calculator.operator('+');
                         if (input.equals("^"))
                             calculator.operator('^');
+                        if (input.equals("π"))
+                            calculator.pi();
                         if (input.equals("DEL"))
                             calculator.delete();
                         if (input.equals("=")) {
