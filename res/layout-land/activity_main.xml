@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/background_material_light"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <HorizontalScrollView
+            android:id="@+id/display_hsv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:gravity="bottom">
+
+                <TextView
+                    android:id="@+id/display_primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_margin"
+                    android:layout_marginRight="@dimen/activity_margin"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="bottom"
+                    android:text=""
+                    android:textColor="#757575"
+                    android:textSize="@dimen/activity_display_text_land" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/display_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:fontFamily="sans-serif-light"
+            android:gravity="top"
+            android:text=""
+            android:textColor="#bdbdbd"
+            android:textSize="@dimen/activity_primary_text_land" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/hidden_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            android:background="#1de9b6"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_sin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="sin"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_cos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="cos"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_tan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="tan"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_ln"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="ln"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="log"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_factorial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="!"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_pi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="π"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="e"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_exponent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="^"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_start_parenthesis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="("
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_end_parenthesis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text=")"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+
+                <TextView
+                    android:id="@+id/text_view_square_root"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="√"
+                    android:textAppearance="?android:attr/textAppearanceInverse"
+                    android:textSize="@dimen/activity_secondary_text_port" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/digit_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            android:background="@color/material_grey_800"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="7"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="9"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_decimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="."
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+
+                <TextView
+                    android:id="@+id/text_view_equals"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="="
+                    android:textAppearance="?android:attr/textAppearance"
+                    android:textSize="@dimen/activity_primary_text_land" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/operator_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="#616161"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_margin">
+
+            <TextView
+                android:id="@+id/text_view_delete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="DEL"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textSize="@dimen/activity_secondary_text_land" />
+
+            <TextView
+                android:id="@+id/text_view_divide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="÷"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textSize="@dimen/activity_primary_text_land" />
+
+            <TextView
+                android:id="@+id/text_view_multiply"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="×"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textSize="@dimen/activity_primary_text_land" />
+
+            <TextView
+                android:id="@+id/text_view_subtract"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="−"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textSize="@dimen/activity_primary_text_land" />
+
+            <TextView
+                android:id="@+id/text_view_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="+"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textSize="@dimen/activity_primary_text_land" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
