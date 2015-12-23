@@ -95,7 +95,6 @@ public class CalculatorView implements CalculatorViewInterface {
         s = s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−");
         s = s.replace("×π", "π").replace("×e", "e");
         s = s.replace("∞", "Infinity").replace("NaN", "Undefined");
-        s = s.replace("E", "e").replace("error", "Error");
         return s;
     }
 

@@ -148,8 +148,6 @@ public class Calculator {
     }
 
     private void update() {
-        text = text.replace(" * e * ", "E");
-        text = text.replace(" * e - ", "E-");
         view.displayPrimary(text);
         view.displaySecondary("");
         if (containsPaddedOperator(text))
