@@ -60,8 +60,21 @@ public class Calculator {
         if (text.length() > 0
                 && isNumber(text.charAt(text.length() - 1)))
             text += " * ";
-        if (text.length() > 0 && text.charAt(text.length() - 1) != '.')
+        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
             text += "π";
+        update();
+    }
+
+    public void e() {
+        if (text.length() >= 3
+                && isOperator(text.charAt(text.length() - 1))
+                && isNumber(text.charAt(text.length() - 3)))
+            text += " ";
+        if (text.length() > 0
+                && isNumber(text.charAt(text.length() - 1)))
+            text += " * ";
+        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
+            text += "e";
         update();
     }
 
@@ -83,8 +96,7 @@ public class Calculator {
             view.displayPrimary("Error");
         }
         view.displaySecondary("");
-        if (text.equals("NaN") || text.contains("∞"))
-            text = "";
+        text = "";
     }
 
     public String getText() {
@@ -124,7 +136,7 @@ public class Calculator {
     }
 
     private boolean isNumber(char c) {
-        if (Character.isDigit(c) || c == 'π')
+        if (Character.isDigit(c) || c == 'π' || c == 'e')
             return true;
         return false;
     }

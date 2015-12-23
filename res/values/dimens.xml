@@ -7,8 +7,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_primary_text_port">32sp</dimen>
     <dimen name="activity_secondary_text_port">18sp</dimen>
-    <dimen name="activity_display_text_port">60sp</dimen>
+    <dimen name="activity_display_text_port">50sp</dimen>
     <dimen name="activity_primary_text_land">25sp</dimen>
     <dimen name="activity_secondary_text_land">18sp</dimen>
-    <dimen name="activity_display_text_land">40sp</dimen>
+    <dimen name="activity_display_text_land">33sp</dimen>
 </resources>

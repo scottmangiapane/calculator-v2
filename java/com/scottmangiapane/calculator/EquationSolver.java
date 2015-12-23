@@ -1,5 +1,6 @@
 package com.scottmangiapane.calculator;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class EquationSolver {
@@ -28,14 +29,21 @@ public class EquationSolver {
     }
 
     public String formatNumber(String s) {
-        s = (new DecimalFormat("#.######")).format(Double.parseDouble(s));
-        if (s.indexOf('.') > 10 || (!s.contains(".") && s.length() > 10))
-            s = (new DecimalFormat("0.######E0")).format(Double.parseDouble(s));
-        return s;
+        if (s.contains("Infinity") || s.contains("NaN"))
+            return s;
+        DecimalFormat df = new DecimalFormat("#.########E0");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        String output = df.format(Double.parseDouble(s));
+        if (Math.abs(Double.parseDouble(output.substring(output.indexOf("E") + 1))) < 8) {
+            df.applyPattern("#.########");
+            output = df.format(Double.parseDouble(s));
+        }
+        return output;
     }
 
     private String operation(String s, String op1, String op2) {
-        s = " " + s.replace("π", "" + Math.PI) + " ";
+        s = " " + s + " ";
+        s = s.replace("π", "" + Math.PI).replace("e", "2.718281828459045");
         while (s.contains(op1) || s.contains(op2)) {
             String operator;
             if (s.indexOf(op2) < s.indexOf(op1))
