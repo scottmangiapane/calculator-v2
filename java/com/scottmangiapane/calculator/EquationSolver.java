@@ -1,5 +1,7 @@
 package com.scottmangiapane.calculator;
 
+import android.util.Log;
+
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
