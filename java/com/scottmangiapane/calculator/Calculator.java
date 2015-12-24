@@ -78,6 +78,26 @@ public class Calculator {
         update();
     }
 
+    public void leftParenthesis() {
+        if (text.length() >= 3
+                && isOperator(text.charAt(text.length() - 1))
+                && isNumber(text.charAt(text.length() - 3)))
+            text += " ";
+        if (text.length() > 0
+                && isNumber(text.charAt(text.length() - 1)))
+            text += " * ";
+        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
+            text += "(";
+        update();
+    }
+
+    public void rightParenthesis() {
+        if (numOfOccurances('(', text) > numOfOccurances(')', text)
+                && isNumber(text.charAt(text.length() - 1)))
+            text += ")";
+        update();
+    }
+
     public void delete() {
         if (text.length() > 0) {
             text = text.substring(0, text.length() - 1);
@@ -136,7 +156,7 @@ public class Calculator {
     }
 
     private boolean isNumber(char c) {
-        if (Character.isDigit(c) || c == 'π' || c == 'e')
+        if (Character.isDigit(c) || c == 'π' || c == 'e' || c == ')')
             return true;
         return false;
     }
@@ -145,6 +165,14 @@ public class Calculator {
         if (c == '/' || c == '*' || c == '-' || c == '+' || c == '^')
             return true;
         return false;
+    }
+
+    private int numOfOccurances(char c, String s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++)
+            if (s.charAt(i) == c)
+                count++;
+        return count;
     }
 
     private void update() {

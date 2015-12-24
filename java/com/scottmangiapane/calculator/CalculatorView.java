@@ -72,6 +72,10 @@ public class CalculatorView implements CalculatorViewInterface {
                             calculator.pi();
                         if (input.equals("e"))
                             calculator.e();
+                        if (input.equals("("))
+                            calculator.leftParenthesis();
+                        if (input.equals(")"))
+                            calculator.rightParenthesis();
                         if (input.equals("DEL"))
                             calculator.delete();
                         if (input.equals("=")) {
@@ -93,7 +97,7 @@ public class CalculatorView implements CalculatorViewInterface {
 
     private String formatToDisplayMode(String s) {
         s = s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−");
-        s = s.replace("×π", "π").replace("×e", "e");
+        s = s.replace("×π", "π").replace("×e", "e").replace("×(", "(");
         s = s.replace("∞", "Infinity").replace("NaN", "Undefined");
         return s;
     }
