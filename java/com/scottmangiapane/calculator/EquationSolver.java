@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 
 public class EquationSolver {
     public String evaluateExpression(String s) {
+        while (numOfOccurrences('(', s) > numOfOccurrences(')', s))
+            s += ")";
         while (s.contains("(")) {
             int startIndex = s.indexOf('(');
             int endIndex = startIndex;
@@ -28,19 +30,6 @@ public class EquationSolver {
         s = operation(s, " * ", " / ");
         s = operation(s, " + ", " - ");
         return s;
-    }
-
-    public String formatNumber(String s) {
-        if (s.contains("Infinity") || s.contains("NaN"))
-            return s;
-        DecimalFormat df = new DecimalFormat("#.########E0");
-        df.setRoundingMode(RoundingMode.HALF_UP);
-        String output = df.format(Double.parseDouble(s));
-        if (Math.abs(Double.parseDouble(output.substring(output.indexOf("E") + 1))) < 8) {
-            df.applyPattern("#.########");
-            output = df.format(Double.parseDouble(s));
-        }
-        return output;
     }
 
     private String operation(String s, String op1, String op2) {
@@ -86,5 +75,26 @@ public class EquationSolver {
 
     private String squareRoot(String s) {
         return s;
+    }
+
+    public String formatNumber(String s) {
+        if (s.contains("Infinity") || s.contains("NaN"))
+            return s;
+        DecimalFormat df = new DecimalFormat("#.########E0");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        String output = df.format(Double.parseDouble(s));
+        if (Math.abs(Double.parseDouble(output.substring(output.indexOf("E") + 1))) < 8) {
+            df.applyPattern("#.########");
+            output = df.format(Double.parseDouble(s));
+        }
+        return output;
+    }
+
+    private int numOfOccurrences(char c, String s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++)
+            if (s.charAt(i) == c)
+                count++;
+        return count;
     }
 }
