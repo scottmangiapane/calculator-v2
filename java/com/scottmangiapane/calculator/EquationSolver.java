@@ -22,6 +22,8 @@ public class EquationSolver {
                     + evaluateExpression(s.substring(startIndex + 1, endIndex))
                     + s.substring(endIndex + 1);
         }
+        s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045");
+        s = squareRoot(s);
         s = operation(s, " ^ ", " ^ ");
         s = operation(s, " * ", " / ");
         s = operation(s, " + ", " - ");
@@ -43,7 +45,6 @@ public class EquationSolver {
 
     private String operation(String s, String op1, String op2) {
         s = " " + s + " ";
-        s = s.replace("π", "" + Math.PI).replace("e", "2.718281828459045");
         while (s.contains(op1) || s.contains(op2)) {
             String operator;
             if (s.indexOf(op2) < s.indexOf(op1))
@@ -81,5 +82,9 @@ public class EquationSolver {
             s = " " + s1 + " " + answer + " " + s2 + " ";
         }
         return s.trim();
+    }
+
+    private String squareRoot(String s) {
+        return s;
     }
 }
