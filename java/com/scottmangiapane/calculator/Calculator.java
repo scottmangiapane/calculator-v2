@@ -92,7 +92,7 @@ public class Calculator {
     }
 
     public void rightParenthesis() {
-        if (numOfOccurances('(', text) > numOfOccurances(')', text)
+        if (numOfOccurrences('(', text) > numOfOccurrences(')', text)
                 && isNumber(text.charAt(text.length() - 1)))
             text += ")";
         update();
@@ -180,7 +180,7 @@ public class Calculator {
         return false;
     }
 
-    private int numOfOccurances(char c, String s) {
+    private int numOfOccurrences(char c, String s) {
         int count = 0;
         for (int i = 0; i < s.length(); i++)
             if (s.charAt(i) == c)
