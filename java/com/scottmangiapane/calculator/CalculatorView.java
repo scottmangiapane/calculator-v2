@@ -6,7 +6,7 @@ import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
-public class CalculatorView implements CalculatorViewInterface {
+public class CalculatorView {
     private Calculator calculator;
     private HorizontalScrollView hsv;
     private TextView displayPrimary;
@@ -54,35 +54,34 @@ public class CalculatorView implements CalculatorViewInterface {
                 buttons[i1][i2].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (Character.isDigit(input.charAt(0)))
-                            calculator.digit(input.charAt(0));
                         if (input.equals("."))
                             calculator.decimal();
-                        if (input.equals("÷"))
-                            calculator.operator('/');
-                        if (input.equals("×"))
-                            calculator.operator('*');
-                        if (input.equals("−"))
-                            calculator.operator('-');
-                        if (input.equals("+"))
-                            calculator.operator('+');
-                        if (input.equals("^"))
-                            calculator.operator('^');
-                        if (input.equals("π"))
-                            calculator.pi();
-                        if (input.equals("e"))
-                            calculator.e();
-                        if (input.equals("("))
-                            calculator.leftParenthesis();
-                        if (input.equals(")"))
-                            calculator.rightParenthesis();
-                        if (input.equals("√"))
-                            calculator.squareRoot();
                         if (input.equals("DEL"))
                             calculator.delete();
-                        if (input.equals("=")) {
+                        if (Character.isDigit(input.charAt(0)))
+                            calculator.digit(input.charAt(0));
+                        if (input.equals("="))
                             calculator.equal();
-                        }
+                        if (input.equals("π"))
+                            calculator.num("π");
+                        if (input.equals("e"))
+                            calculator.num("e");
+                        if (input.equals("÷"))
+                            calculator.numOpNum('/');
+                        if (input.equals("×"))
+                            calculator.numOpNum('*');
+                        if (input.equals("−"))
+                            calculator.numOpNum('-');
+                        if (input.equals("+"))
+                            calculator.numOpNum('+');
+                        if (input.equals("^"))
+                            calculator.numOpNum('^');
+                        if (input.equals("√"))
+                            calculator.opNum('√');
+                        if (input.equals("("))
+                            calculator.parenthesisLeft();
+                        if (input.equals(")"))
+                            calculator.parenthesisRight();
                     }
                 });
             }
@@ -98,13 +97,12 @@ public class CalculatorView implements CalculatorViewInterface {
     }
 
     private String formatToDisplayMode(String s) {
-        //s = s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−");
-        //s = s.replace("×π", "π").replace("×e", "e").replace("×(", "(");
-        //s = s.replace("∞", "Infinity").replace("NaN", "Undefined");
+        s = s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−");
+        s = s.replace("×π", "π").replace("×e", "e").replace("×(", "(");
+        s = s.replace("∞", "Infinity").replace("NaN", "Undefined");
         return s;
     }
 
-    @Override
     public void displayPrimary(String val) {
         displayPrimary.setText(formatToDisplayMode(val));
         ViewTreeObserver vto = hsv.getViewTreeObserver();
@@ -117,7 +115,6 @@ public class CalculatorView implements CalculatorViewInterface {
         });
     }
 
-    @Override
     public void displaySecondary(String val) {
         displaySecondary.setText(formatToDisplayMode(val));
     }
