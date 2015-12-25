@@ -1,14 +1,34 @@
 package com.scottmangiapane.calculator;
 
 public class Calculator {
-    private CalculatorViewInterface view;
+    private CalculatorView view;
     private EquationSolver equationSolver;
     private String text;
 
-    public Calculator(CalculatorViewInterface view) {
+    public Calculator(CalculatorView view) {
         this.view = view;
         this.equationSolver = new EquationSolver();
         this.text = "";
+        update();
+    }
+
+    public void decimal() {
+        if (getLast().indexOf('.') == -1)
+            if (text.length() > 0 && Character.isDigit(text.charAt(text.length() - 1)))
+                text += ".";
+            else {
+                digit('0');
+                decimal();
+            }
+        update();
+    }
+
+    public void delete() {
+        if (text.length() > 0) {
+            text = text.substring(0, text.length() - 1);
+            if (text.length() > 0 && text.charAt(text.length() - 1) == ' ')
+                text = text.substring(0, text.length() - 1);
+        }
         update();
     }
 
@@ -25,18 +45,32 @@ public class Calculator {
         update();
     }
 
-    public void decimal() {
-        if (getLast().indexOf('.') == -1)
-            if (text.length() > 0 && Character.isDigit(text.charAt(text.length() - 1)))
-                text += ".";
-            else {
-                digit('0');
-                decimal();
-            }
+    public void equal() {
+        try {
+            text = equationSolver.formatNumber(equationSolver.evaluateExpression(text));
+            view.displayPrimary(text);
+        } catch (Exception e) {
+            text = "";
+            view.displayPrimary("Error");
+        }
+        view.displaySecondary("");
+        text = "";
+    }
+
+    public void num(String number) {
+        if (text.length() >= 3
+                && isOperator(text.charAt(text.length() - 1))
+                && isNumber(text.charAt(text.length() - 3)))
+            text += " ";
+        if (text.length() > 0
+                && isNumber(text.charAt(text.length() - 1)))
+            text += " * ";
+        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
+            text += number;
         update();
     }
 
-    public void operator(char operator) {
+    public void numOpNum(char operator) {
         if (operator == '-' && (text.length() == 0
                 || (isOperator(text.charAt(text.length() - 1))
                 && (text.length() >= 3
@@ -52,7 +86,7 @@ public class Calculator {
         update();
     }
 
-    public void pi() {
+    public void opNum(char c) {
         if (text.length() >= 3
                 && isOperator(text.charAt(text.length() - 1))
                 && isNumber(text.charAt(text.length() - 3)))
@@ -61,24 +95,11 @@ public class Calculator {
                 && isNumber(text.charAt(text.length() - 1)))
             text += " * ";
         if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
-            text += "π";
+            text += "" + c;
         update();
     }
 
-    public void e() {
-        if (text.length() >= 3
-                && isOperator(text.charAt(text.length() - 1))
-                && isNumber(text.charAt(text.length() - 3)))
-            text += " ";
-        if (text.length() > 0
-                && isNumber(text.charAt(text.length() - 1)))
-            text += " * ";
-        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
-            text += "e";
-        update();
-    }
-
-    public void leftParenthesis() {
+    public void parenthesisLeft() {
         if (text.length() >= 3
                 && isOperator(text.charAt(text.length() - 1))
                 && isNumber(text.charAt(text.length() - 3)))
@@ -91,45 +112,11 @@ public class Calculator {
         update();
     }
 
-    public void rightParenthesis() {
+    public void parenthesisRight() {
         if (numOfOccurrences('(', text) > numOfOccurrences(')', text)
                 && isNumber(text.charAt(text.length() - 1)))
             text += ")";
         update();
-    }
-
-    public void squareRoot() {
-        if (text.length() >= 3
-                && isOperator(text.charAt(text.length() - 1))
-                && isNumber(text.charAt(text.length() - 3)))
-            text += " ";
-        if (text.length() > 0
-                && isNumber(text.charAt(text.length() - 1)))
-            text += " * ";
-        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
-            text += "√";
-        update();
-    }
-
-    public void delete() {
-        if (text.length() > 0) {
-            text = text.substring(0, text.length() - 1);
-            if (text.length() > 0 && text.charAt(text.length() - 1) == ' ')
-                text = text.substring(0, text.length() - 1);
-        }
-        update();
-    }
-
-    public void equal() {
-        try {
-            text = equationSolver.formatNumber(equationSolver.evaluateExpression(text));
-            view.displayPrimary(text);
-        } catch (Exception e) {
-            text = "";
-            view.displayPrimary("Error");
-        }
-        view.displaySecondary("");
-        text = "";
     }
 
     public String getText() {
