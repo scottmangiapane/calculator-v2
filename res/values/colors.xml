@@ -3,4 +3,8 @@
     <color name="colorPrimary">#4dd0e1 </color>
     <color name="colorPrimaryDark">#4dd0e1 </color>
     <color name="colorAccent">#4dd0e1 </color>
+    <color name="displayPanel">#fafafa</color>
+    <color name="numberPanel">#424242</color>
+    <color name="basicOperations">#616161</color>
+    <color name="advancedOperations">#1de9b6</color>
 </resources>
