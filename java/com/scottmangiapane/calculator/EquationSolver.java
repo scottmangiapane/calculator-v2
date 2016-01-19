@@ -5,11 +5,12 @@ import java.text.DecimalFormat;
 
 public class EquationSolver {
     public String evaluateExpression(String s) {
+        s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045");
         while (numOfOccurrences('(', s) > numOfOccurrences(')', s))
             s += ")";
         while (s.contains("(")) {
             int startIndex = s.indexOf('(');
-            int endIndex = startIndex;
+            int endIndex = s.length();
             for (int i = startIndex, layer = 0; i < s.length(); i++) {
                 if (s.charAt(i) == '(')
                     layer++;
@@ -24,8 +25,16 @@ public class EquationSolver {
                     + evaluateExpression(s.substring(startIndex + 1, endIndex))
                     + s.substring(endIndex + 1);
         }
-        s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045");
-        s = squareRoot(s);
+        while (s.contains("√")) {
+            int startIndex = s.lastIndexOf("√");
+            int endIndex = s.length();
+            if (s.substring(startIndex).contains(" "))
+                endIndex = s.indexOf(" ", startIndex);
+            s += " ";
+            s = (s.substring(0, startIndex)
+                    + evaluateExpression(s.substring(startIndex + 1, endIndex) + " ^ 0.5")
+                    + s.substring(endIndex + 1)).trim();
+        }
         s = operation(s, " ^ ", " ^ ");
         s = operation(s, " * ", " / ");
         s = operation(s, " + ", " - ");
@@ -71,10 +80,6 @@ public class EquationSolver {
             s = " " + s1 + " " + answer + " " + s2 + " ";
         }
         return s.trim();
-    }
-
-    private String squareRoot(String s) {
-        return s;
     }
 
     public String formatNumber(String s) {
