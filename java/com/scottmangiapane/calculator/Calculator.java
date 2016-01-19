@@ -176,7 +176,7 @@ public class Calculator {
     }
 
     private void update() {
-        view.displayPrimary(text);
+        view.displayPrimaryAndScroll(text);
         view.displaySecondary("");
         if (containsPaddedOperator(text))
             try {

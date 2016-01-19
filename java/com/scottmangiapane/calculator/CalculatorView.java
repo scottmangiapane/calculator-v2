@@ -104,6 +104,10 @@ public class CalculatorView {
 
     public void displayPrimary(String val) {
         displayPrimary.setText(formatToDisplayMode(val));
+    }
+
+    public void displayPrimaryAndScroll(String val) {
+        displayPrimary.setText(formatToDisplayMode(val));
         ViewTreeObserver vto = hsv.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
