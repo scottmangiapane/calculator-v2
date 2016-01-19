@@ -97,10 +97,9 @@ public class CalculatorView {
     }
 
     private String formatToDisplayMode(String s) {
-        s = s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−");
-        s = s.replace("×π", "π").replace("×e", "e").replace("×(", "(");
-        s = s.replace("∞", "Infinity").replace("NaN", "Undefined");
-        return s;
+        return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
+                .replace("×π", "π").replace("×e", "e").replace("×(", "(")
+                .replace("∞", "Infinity").replace("NaN", "Undefined");
     }
 
     public void displayPrimary(String val) {

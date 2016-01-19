@@ -180,7 +180,8 @@ public class Calculator {
         view.displaySecondary("");
         if (containsPaddedOperator(text))
             try {
-                view.displaySecondary(equationSolver.formatNumber(equationSolver.evaluateExpression(text)));
+                view.displaySecondary(equationSolver.formatNumber(equationSolver
+                        .evaluateExpression(text)));
             } catch (Exception e) {
             }
     }
