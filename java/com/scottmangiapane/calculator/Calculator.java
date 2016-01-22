@@ -129,21 +129,12 @@ public class Calculator {
     }
 
     private boolean containsOperator(String s) {
-        if (s.contains("/")
-                || s.contains("*")
-                || s.contains("-")
-                || s.contains("+")
-                || s.contains("^"))
-            return true;
-        return false;
-    }
-
-    private boolean containsPaddedOperator(String s) {
         if (s.contains(" / ")
                 || s.contains(" * ")
                 || s.contains(" - ")
                 || s.contains(" + ")
-                || s.contains(" ^ "))
+                || s.contains(" ^ ")
+                || s.contains("√"))
             return true;
         return false;
     }
@@ -178,7 +169,7 @@ public class Calculator {
     private void update() {
         view.displayPrimaryAndScroll(text);
         view.displaySecondary("");
-        if (containsPaddedOperator(text))
+        if (containsOperator(text))
             try {
                 view.displaySecondary(equationSolver.formatNumber(equationSolver
                         .evaluateExpression(text)));
