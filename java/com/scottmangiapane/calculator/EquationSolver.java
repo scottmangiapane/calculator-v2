@@ -26,14 +26,13 @@ public class EquationSolver {
                     + s.substring(endIndex + 1);
         }
         while (s.contains("√")) {
-            int startIndex = s.lastIndexOf("√");
+            int startIndex = s.indexOf('√');
             int endIndex = s.length();
             if (s.substring(startIndex).contains(" "))
-                endIndex = s.indexOf(" ", startIndex);
-            s += " ";
-            s = (s.substring(0, startIndex)
-                    + evaluateExpression(s.substring(startIndex + 1, endIndex) + " ^ 0.5")
-                    + s.substring(endIndex + 1)).trim();
+                endIndex = s.indexOf(' ', startIndex);
+                        s = s.substring(0, startIndex)
+                    + Math.sqrt(Double.parseDouble(s.substring(startIndex + 1, endIndex)))
+                    + s.substring(endIndex);
         }
         s = operation(s, " ^ ", " ^ ");
         s = operation(s, " * ", " / ");
