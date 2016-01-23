@@ -72,9 +72,7 @@ public class Calculator {
 
     public void numOpNum(char operator) {
         if (operator == '-' && (text.length() == 0
-                || (isOperator(text.charAt(text.length() - 1))
-                && (text.length() >= 3
-                && isNumber(text.charAt(text.length() - 3)))))) {
+                || isOperator(text.charAt(text.length() - 1)))) {
             text = (text + " " + operator).trim();
         } else if (text.length() > 0 && isOperator(text.charAt(text.length() - 1))) {
             if (text.length() >= 3 && isOperator(text.charAt(text.length() - 3)))
@@ -153,7 +151,7 @@ public class Calculator {
     }
 
     private boolean isOperator(char c) {
-        if (c == '/' || c == '*' || c == '-' || c == '+' || c == '^')
+        if (c == '/' || c == '*' || c == '-' || c == '+' || c == '^'|| c == '√'|| c == '(')
             return true;
         return false;
     }
