@@ -3,175 +3,127 @@ package com.scottmangiapane.calculator;
 public class Calculator {
     private CalculatorView view;
     private EquationSolver equationSolver;
-    private String text;
+    private Equation eq;
 
     public Calculator(CalculatorView view) {
         this.view = view;
         this.equationSolver = new EquationSolver();
-        this.text = "";
-        update();
-    }
-
-    public void decimal() {
-        if (getLast().indexOf('.') == -1)
-            if (text.length() > 0 && Character.isDigit(text.charAt(text.length() - 1)))
-                text += ".";
-            else {
-                digit('0');
-                decimal();
-            }
-        update();
-    }
-
-    public void delete() {
-        if (text.length() > 0) {
-            text = text.substring(0, text.length() - 1);
-            if (text.length() > 0 && text.charAt(text.length() - 1) == ' ')
-                text = text.substring(0, text.length() - 1);
-        }
-        update();
-    }
-
-    public void digit(char digit) {
-        if (text.length() >= 3
-                && isOperator(text.charAt(text.length() - 1))
-                && isNumber(text.charAt(text.length() - 3)))
-            text += " ";
-        if (text.length() > 0
-                && isNumber(text.charAt(text.length() - 1))
-                && !Character.isDigit(text.charAt(text.length() - 1)))
-            text += " * ";
-        text += "" + digit;
-        update();
-    }
-
-    public void equal() {
-        try {
-            text = equationSolver.formatNumber(equationSolver.evaluateExpression(text));
-            view.displayPrimary(text);
-        } catch (Exception e) {
-            text = "";
-            view.displayPrimary("Error");
-        }
-        view.displaySecondary("");
-        text = "";
-    }
-
-    public void num(String number) {
-        if (text.length() >= 3
-                && isOperator(text.charAt(text.length() - 1))
-                && isNumber(text.charAt(text.length() - 3)))
-            text += " ";
-        if (text.length() > 0
-                && isNumber(text.charAt(text.length() - 1)))
-            text += " * ";
-        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
-            text += number;
-        update();
-    }
-
-    public void numOpNum(char operator) {
-        if (operator == '-' && (text.length() == 0
-                || isOperator(text.charAt(text.length() - 1)))) {
-            text = (text + " " + operator).trim();
-        } else if (text.length() > 0 && isOperator(text.charAt(text.length() - 1))) {
-            if (text.length() >= 3 && isOperator(text.charAt(text.length() - 3)))
-                text = text.substring(0, text.length() - 3) + operator;
-            else if (text.length() >= 3)
-                text = text.substring(0, text.length() - 1) + operator;
-        } else if (text.length() > 0 && isNumber(text.charAt(text.length() - 1)))
-            text += " " + operator;
-        update();
-    }
-
-    public void opNum(char c) {
-        if (text.length() >= 3
-                && isOperator(text.charAt(text.length() - 1))
-                && isNumber(text.charAt(text.length() - 3)))
-            text += " ";
-        if (text.length() > 0
-                && isNumber(text.charAt(text.length() - 1)))
-            text += " * ";
-        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
-            text += "" + c;
-        update();
-    }
-
-    public void parenthesisLeft() {
-        if (text.length() >= 3
-                && isOperator(text.charAt(text.length() - 1))
-                && isNumber(text.charAt(text.length() - 3)))
-            text += " ";
-        if (text.length() > 0
-                && isNumber(text.charAt(text.length() - 1)))
-            text += " * ";
-        if (text.length() == 0 || (text.length() > 0 && text.charAt(text.length() - 1) != '.'))
-            text += "(";
-        update();
-    }
-
-    public void parenthesisRight() {
-        if (numOfOccurrences('(', text) > numOfOccurrences(')', text)
-                && isNumber(text.charAt(text.length() - 1)))
-            text += ")";
+        this.eq = new Equation();
         update();
     }
 
     public String getText() {
-        return text;
+        return eq.getText();
     }
 
-    public void setText(String s) {
-        text = s;
+    public void setText(String text) {
+        eq.setText(text);
         update();
     }
 
-    private boolean containsOperator(String s) {
-        if (s.contains(" / ")
-                || s.contains(" * ")
-                || s.contains(" - ")
-                || s.contains(" + ")
-                || s.contains(" ^ ")
-                || s.contains("√"))
-            return true;
-        return false;
+    public void decimal() {
+        if (!eq.isRawNumber(0))
+            digit('0');
+        if (!eq.getLast().contains("."))
+            eq.attachToLast('.');
+        update();
     }
 
-    private String getLast() {
-        String[] array = text.split(" ");
-        if (array != null && array.length > 0)
-            return array[array.length - 1];
-        return "";
+    public void delete() {
+        if (eq.isRawNumber(0) && eq.getLast().length() > 1)
+            eq.detachFromLast();
+        else
+            eq.removeLast();
+        update();
     }
 
-    private boolean isNumber(char c) {
-        if (Character.isDigit(c) || c == 'π' || c == 'e' || c == ')')
-            return true;
-        return false;
+    public void digit(char digit) {
+        if (eq.isRawNumber(0))
+            eq.attachToLast(digit);
+        else {
+            if (eq.isNumber(0))
+                eq.add("*");
+            eq.add("" + digit);
+        }
+        update();
     }
 
-    private boolean isOperator(char c) {
-        if (c == '/' || c == '*' || c == '-' || c == '+' || c == '^'|| c == '√'|| c == '(')
-            return true;
-        return false;
+    public void equal() {
+        String s;
+        try {
+            s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
+        } catch (Exception e) {
+            s = "Error";
+        }
+        view.displayPrimaryScrollLeft(s);
+        view.displaySecondary("");
+        eq = new Equation();
     }
 
-    private int numOfOccurrences(char c, String s) {
-        int count = 0;
-        for (int i = 0; i < s.length(); i++)
-            if (s.charAt(i) == c)
-                count++;
-        return count;
+    public void num(char number) {
+        if (eq.getLast().endsWith("."))
+            eq.detachFromLast();
+        if (eq.getLast().equals("-"))
+            eq.attachToLast(number);
+        else {
+            if (eq.isNumber(0))
+                eq.add("*");
+            eq.add("" + number);
+        }
+        update();
+    }
+
+    public void numOpNum(char operator) {
+        if (eq.getLast().endsWith("."))
+            eq.detachFromLast();
+        if (operator != '-' || (eq.isOperator(0) && eq.isStartCharacter(1)))
+            while (eq.isOperator(0))
+                eq.removeLast();
+        if (operator == '-' || !eq.isStartCharacter(0))
+            eq.add("" + operator);
+        update();
+    }
+
+    public void opNum(char operator) {
+        if (eq.getLast().endsWith("."))
+            eq.detachFromLast();
+        if (eq.getLast().equals("-"))
+            eq.attachToLast(operator);
+        else {
+            if (eq.isNumber(0))
+                eq.add("*");
+            eq.add("" + operator);
+        }
+        update();
+    }
+
+    public void parenthesisLeft() {
+        if (eq.getLast().endsWith("."))
+            eq.detachFromLast();
+        if (eq.getLast().equals("-"))
+            eq.attachToLast('(');
+        else {
+            if (eq.isNumber(0))
+                eq.add("*");
+            eq.add("(");
+        }
+        update();
+    }
+
+    public void parenthesisRight() {
+        if (eq.numOf('(') > eq.numOf(')') && eq.isNumber(0))
+            eq.add(")");
+        update();
     }
 
     private void update() {
-        view.displayPrimaryAndScroll(text);
-        view.displaySecondary("");
-        if (containsOperator(text))
-            try {
-                view.displaySecondary(equationSolver.formatNumber(equationSolver
-                        .evaluateExpression(text)));
-            } catch (Exception e) {
-            }
+        view.displayPrimaryScrollRight(getText());
+        try {
+            view.displaySecondary(
+                    equationSolver.formatNumber(equationSolver.evaluateExpression(getText()))
+            );
+        } catch (Exception e) {
+            view.displaySecondary("");
+        }
     }
 }
