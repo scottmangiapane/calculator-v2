@@ -63,9 +63,9 @@ public class CalculatorView {
                         if (input.equals("="))
                             calculator.equal();
                         if (input.equals("π"))
-                            calculator.num("π");
+                            calculator.num('π');
                         if (input.equals("e"))
-                            calculator.num("e");
+                            calculator.num('e');
                         if (input.equals("÷"))
                             calculator.numOpNum('/');
                         if (input.equals("×"))
@@ -96,17 +96,19 @@ public class CalculatorView {
         calculator.setText(s);
     }
 
-    private String formatToDisplayMode(String s) {
-        return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
-                .replace("×π", "π").replace("×e", "e").replace("×(", "(")
-                .replace("∞", "Infinity").replace("NaN", "Undefined");
-    }
-
-    public void displayPrimary(String val) {
+    public void displayPrimaryScrollLeft(String val) {
         displayPrimary.setText(formatToDisplayMode(val));
+        ViewTreeObserver vto = hsv.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                hsv.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                hsv.fullScroll(View.FOCUS_LEFT);
+            }
+        });
     }
 
-    public void displayPrimaryAndScroll(String val) {
+    public void displayPrimaryScrollRight(String val) {
         displayPrimary.setText(formatToDisplayMode(val));
         ViewTreeObserver vto = hsv.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -120,5 +122,11 @@ public class CalculatorView {
 
     public void displaySecondary(String val) {
         displaySecondary.setText(formatToDisplayMode(val));
+    }
+
+    private String formatToDisplayMode(String s) {
+        return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
+                .replace("×π", "π").replace("×e", "e").replace("×(", "(")
+                .replace("∞", "Infinity").replace("NaN", "Undefined");
     }
 }

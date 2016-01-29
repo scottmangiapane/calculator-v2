@@ -7,7 +7,7 @@ public class EquationSolver {
     public String evaluateExpression(String s) {
         s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045");
         while (numOfOccurrences('(', s) > numOfOccurrences(')', s))
-            s += ")";
+            s += ") ";
         while (s.contains("(")) {
             int startIndex = s.indexOf('(');
             int endIndex = s.length();
@@ -22,16 +22,14 @@ public class EquationSolver {
                 }
             }
             s = s.substring(0, startIndex)
-                    + evaluateExpression(s.substring(startIndex + 1, endIndex))
+                    + evaluateExpression(s.substring(startIndex + 2, endIndex - 1))
                     + s.substring(endIndex + 1);
         }
         while (s.contains("√")) {
             int startIndex = s.indexOf('√');
-            int endIndex = s.length();
-            if (s.substring(startIndex).contains(" "))
-                endIndex = s.indexOf(' ', startIndex);
-                        s = s.substring(0, startIndex)
-                    + Math.sqrt(Double.parseDouble(s.substring(startIndex + 1, endIndex)))
+            int endIndex = s.indexOf(' ', startIndex + 2);
+            s = s.substring(0, startIndex)
+                    + Math.sqrt(Double.parseDouble(s.substring(startIndex + 2, endIndex)))
                     + s.substring(endIndex);
         }
         s = operation(s, " ^ ", " ^ ");
