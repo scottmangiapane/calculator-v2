@@ -77,8 +77,7 @@ public class Equation extends ArrayList<String> {
     public boolean isRawNumber(int i) {
         String s = getRecent(i);
         if (s != null && s.length() > 0)
-            if (Character.isDigit(s.charAt(0))
-                    || (s.charAt(0) == '-' && isStartCharacter(i + 1)))
+            if (Character.isDigit(s.charAt(0)) || (s.charAt(0) == '-' && isStartCharacter(i + 1) && (s.length() == 1 || Character.isDigit(s.charAt(1)))))
                 return true;
         return false;
     }
