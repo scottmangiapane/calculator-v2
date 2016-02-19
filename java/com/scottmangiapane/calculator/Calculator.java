@@ -21,7 +21,7 @@ public class Calculator {
         update();
     }
 
-    public void decimal() { 
+    public void decimal() {
         if (!Character.isDigit(eq.getLastChar()))
             digit('0');
         if (!eq.getLast().contains("."))
@@ -30,7 +30,7 @@ public class Calculator {
     }
 
     public void delete() {
-        if (eq.isRawNumber(0) && eq.getLast().length() > 1)
+        if (eq.isRawNumber(0) && eq.getLast().length() > 1) // todo change to "> 0"
             eq.detachFromLast();
         else
             eq.removeLast();
@@ -102,9 +102,11 @@ public class Calculator {
             eq.detachFromLast();
         if (eq.getLast().equals("-") && eq.isRawNumber(0))
             eq.attachToLast('(');
-        else if (eq.isNumber(0))
-            eq.add("*");
-        eq.add("(");
+        else {
+            if (eq.isNumber(0))
+                eq.add("*");
+            eq.add("(");
+        }
         update();
     }
 
