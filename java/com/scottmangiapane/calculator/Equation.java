@@ -12,7 +12,8 @@ public class Equation extends ArrayList<String> {
     }
 
     public void setText(String text) {
-        removeRange(0, size() - 1);
+        while (size() > 0)
+            removeLast();
         String[] sa = text.split(" ");
         for (String s : sa)
             add(s);
@@ -38,6 +39,13 @@ public class Equation extends ArrayList<String> {
 
     public String getLast() {
         return getRecent(0);
+    }
+
+    public char getLastChar() {
+        String s = getLast();
+        if (s.length() > 0)
+            return s.charAt(0);
+        return ' ';
     }
 
     public String getRecent(int indexFromLast) {
@@ -67,11 +75,10 @@ public class Equation extends ArrayList<String> {
     }
 
     public boolean isRawNumber(int i) {
-        String s1 = getRecent(i);
-        String s2 = getRecent(i + 1);
-        if (s1 != null && s1.length() > 0)
-            if (Character.isDigit(s1.charAt(0))
-                    || (s1.charAt(0) == '-' && isStartCharacter(i + 1)))
+        String s = getRecent(i);
+        if (s != null && s.length() > 0)
+            if (Character.isDigit(s.charAt(0))
+                    || (s.charAt(0) == '-' && isStartCharacter(i + 1)))
                 return true;
         return false;
     }
@@ -82,7 +89,7 @@ public class Equation extends ArrayList<String> {
             char c = s.charAt(0);
             if (s.length() > 1 && c == '-')
                 c = s.charAt(1);
-            if (c == '√' || c == '(' || c == '/' || c == '*' || c == '-' || c == '+' || c == '^')
+            if (c == '√' || c == '(' || c == '/' || c == '*' || c == '-' || c == '+' || c == '^') // todo optimize
                 return true;
         }
         if (s.equals(""))

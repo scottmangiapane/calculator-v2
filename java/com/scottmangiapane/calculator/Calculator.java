@@ -12,7 +12,7 @@ public class Calculator {
         update();
     }
 
-    public String getText() {
+    public String getText() { //good
         return eq.getText();
     }
 
@@ -21,8 +21,8 @@ public class Calculator {
         update();
     }
 
-    public void decimal() {
-        if (!eq.isRawNumber(0))
+    public void decimal() { 
+        if (!Character.isDigit(eq.getLastChar()))
             digit('0');
         if (!eq.getLast().contains("."))
             eq.attachToLast('.');
@@ -63,7 +63,7 @@ public class Calculator {
     public void num(char number) {
         if (eq.getLast().endsWith("."))
             eq.detachFromLast();
-        if (eq.getLast().equals("-"))
+        if (eq.isRawNumber(0) && eq.getLast().charAt(0) == '-')
             eq.attachToLast(number);
         else {
             if (eq.isNumber(0))
@@ -100,13 +100,11 @@ public class Calculator {
     public void parenthesisLeft() {
         if (eq.getLast().endsWith("."))
             eq.detachFromLast();
-        if (eq.getLast().equals("-"))
+        if (eq.getLast().equals("-") && eq.isRawNumber(0))
             eq.attachToLast('(');
-        else {
-            if (eq.isNumber(0))
-                eq.add("*");
-            eq.add("(");
-        }
+        else if (eq.isNumber(0))
+            eq.add("*");
+        eq.add("(");
         update();
     }
 
