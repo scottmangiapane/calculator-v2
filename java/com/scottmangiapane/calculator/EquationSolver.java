@@ -26,10 +26,10 @@ public class EquationSolver {
                     + s.substring(endIndex + 1);
         }
         while (s.contains("√")) {
-            int startIndex = s.indexOf('√');
+            int startIndex = s.lastIndexOf('√');
             int endIndex = s.indexOf(' ', startIndex + 2);
             s = s.substring(0, startIndex)
-                    + Math.sqrt(Double.parseDouble(s.substring(startIndex + 2, endIndex)))
+                    + Math.sqrt(Double.parseDouble(evaluateExpression(s.substring(startIndex + 2, endIndex))))
                     + s.substring(endIndex);
         }
         s = operation(s, " ^ ", " ^ ");

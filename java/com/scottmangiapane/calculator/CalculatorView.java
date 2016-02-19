@@ -125,8 +125,9 @@ public class CalculatorView {
     }
 
     private String formatToDisplayMode(String s) {
-        return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
+        return s.replace(" ", "_");
+        /*return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
                 .replace("×π", "π").replace("×e", "e").replace("×(", "(")
-                .replace("∞", "Infinity").replace("NaN", "Undefined");
+                .replace("∞", "Infinity").replace("NaN", "Undefined");*/
     }
 }
