@@ -30,7 +30,8 @@ public class Calculator {
     }
 
     public void delete() {
-        if (eq.isRawNumber(0) && eq.getLast().length() > 1) // todo change to "> 0"
+
+        if ((eq.isRawNumber(0) || (eq.getLast().length() > 0 && eq.getLast().charAt(0) == '-')) && eq.getLast().length() > 1) // todo optimize
             eq.detachFromLast();
         else
             eq.removeLast();
