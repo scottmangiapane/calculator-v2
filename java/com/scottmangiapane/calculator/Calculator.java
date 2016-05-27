@@ -12,7 +12,7 @@ public class Calculator {
         update();
     }
 
-    public String getText() { //good
+    public String getText() {
         return eq.getText();
     }
 
@@ -64,13 +64,21 @@ public class Calculator {
     public void num(char number) {
         if (eq.getLast().endsWith("."))
             eq.detachFromLast();
-        if (eq.isRawNumber(0) && eq.getLast().charAt(0) == '-')
+        if (eq.isRawNumber(0) && eq.getLastChar() == '-')
             eq.attachToLast(number);
         else {
             if (eq.isNumber(0))
                 eq.add("*");
             eq.add("" + number);
         }
+        update();
+    }
+
+    public void numOp(char operator) {
+        if (eq.getLast().endsWith("."))
+            eq.detachFromLast();
+        if (eq.isNumber(0))
+            eq.add("" + operator);
         update();
     }
 

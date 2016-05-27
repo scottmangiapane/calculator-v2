@@ -66,6 +66,8 @@ public class CalculatorView {
                             calculator.num('π');
                         if (input.equals("e"))
                             calculator.num('e');
+                        if (input.equals("!"))
+                            calculator.numOp('!');
                         if (input.equals("÷"))
                             calculator.numOpNum('/');
                         if (input.equals("×"))
@@ -125,9 +127,9 @@ public class CalculatorView {
     }
 
     private String formatToDisplayMode(String s) {
-        //return s.replace(" ", "_");
-        return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
+        return s.replace(" ", "_");
+        /*return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
                 .replace("×π", "π").replace("×e", "e").replace("×(", "(")
-                .replace("∞", "Infinity").replace("NaN", "Undefined");
+                .replace("∞", "Infinity").replace("NaN", "Undefined");*/
     }
 }
