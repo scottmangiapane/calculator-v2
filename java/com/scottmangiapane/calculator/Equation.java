@@ -44,7 +44,7 @@ public class Equation extends ArrayList<String> {
     public char getLastChar() {
         String s = getLast();
         if (s.length() > 0)
-            return s.charAt(0);
+            return s.charAt(s.length() - 1);
         return ' ';
     }
 
