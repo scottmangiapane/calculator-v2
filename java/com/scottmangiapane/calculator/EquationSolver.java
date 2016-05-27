@@ -10,7 +10,7 @@ public class EquationSolver {
             s += ") ";
         while (s.contains("(")) {
             int startIndex = s.indexOf('(');
-            int endIndex = s.length();
+            int endIndex = 0;
             for (int i = startIndex, layer = 0; i < s.length(); i++) {
                 if (s.charAt(i) == '(')
                     layer++;
@@ -22,8 +22,8 @@ public class EquationSolver {
                 }
             }
             s = s.substring(0, startIndex)
-                    + evaluateExpression(s.substring(startIndex + 2, endIndex - 1))
-                    + s.substring(endIndex + 1);
+                    + evaluateExpression(s.substring(startIndex + 2, endIndex))
+                    + " " + s.substring(endIndex + 2);
         }
         while (s.contains("√")) {
             int startIndex = s.lastIndexOf('√');
