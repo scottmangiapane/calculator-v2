@@ -1,5 +1,7 @@
 package com.scottmangiapane.calculator;
 
+import org.apache.commons.math3.special.Gamma;
+
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -24,6 +26,22 @@ public class EquationSolver {
             s = s.substring(0, startIndex)
                     + evaluateExpression(s.substring(startIndex + 2, endIndex))
                     + " " + s.substring(endIndex + 2);
+        }
+        while (s.contains("!")) {
+            s = " " + s + " ";
+            String s1 = "";
+            String s2 = s.substring(s.lastIndexOf(" ", s.indexOf("!") - 2) + 1, s.indexOf("!") - 1);
+            String s3 = "";
+            try {
+                s1 = s.substring(1, s.lastIndexOf(" ", s.indexOf("!") - 2));
+            } catch (Exception e) {
+            }
+            s2 = "" + Gamma.gamma(Double.parseDouble(s2) + 1);
+            try {
+                s3 = s.substring(s.indexOf("!") + 2);
+            } catch (Exception e) {
+            }
+            s = s1 + " " + s2 + " " + s3;
         }
         while (s.contains("√")) {
             int startIndex = s.lastIndexOf('√');
