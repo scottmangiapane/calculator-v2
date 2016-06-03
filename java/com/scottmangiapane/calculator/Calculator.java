@@ -131,8 +131,6 @@ public class Calculator {
             view.displaySecondary(
                     equationSolver.formatNumber(equationSolver.evaluateExpression(getText()))
             );
-        } catch (Exception e) {
-            view.displaySecondary("");
-        }
+        } catch (Exception e) {}
     }
 }
