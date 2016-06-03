@@ -31,7 +31,7 @@ public class Calculator {
 
     public void delete() {
 
-        if ((eq.isRawNumber(0) || (eq.getLast().length() > 0 && eq.getLast().charAt(0) == '-')) && eq.getLast().length() > 1) // todo optimize
+        if (eq.getLast().length() > 1 && (eq.isRawNumber(0) || eq.getLast().charAt(0) == '-'))
             eq.detachFromLast();
         else
             eq.removeLast();
@@ -131,6 +131,8 @@ public class Calculator {
             view.displaySecondary(
                     equationSolver.formatNumber(equationSolver.evaluateExpression(getText()))
             );
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            view.displaySecondary("");
+        }
     }
 }
