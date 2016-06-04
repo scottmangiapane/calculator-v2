@@ -58,7 +58,7 @@ public class Equation extends ArrayList<String> {
         String s = getRecent(i);
         if (s != null && s.length() > 0) {
             char c = s.charAt(0);
-            if (isRawNumber(i) || c == 'π' || c == 'e' || c == ')')
+            if (isRawNumber(i) || c == 'π' || c == 'e' || c == ')'|| c == '!')
                 return true;
         }
         return false;

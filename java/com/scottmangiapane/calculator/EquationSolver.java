@@ -27,6 +27,13 @@ public class EquationSolver {
                     + evaluateExpression(s.substring(startIndex + 2, endIndex))
                     + " " + s.substring(endIndex + 2);
         }
+        while (s.contains("√")) {
+            int startIndex = s.lastIndexOf('√');
+            int endIndex = s.indexOf(' ', startIndex + 2);
+            s = s.substring(0, startIndex)
+                    + Math.sqrt(Double.parseDouble(evaluateExpression(s.substring(startIndex + 2, endIndex))))
+                    + s.substring(endIndex);
+        }
         while (s.contains("!")) {
             s = " " + s + " ";
             String s1 = "";
@@ -42,13 +49,6 @@ public class EquationSolver {
             } catch (Exception e) {
             }
             s = s1 + " " + s2 + " " + s3;
-        }
-        while (s.contains("√")) {
-            int startIndex = s.lastIndexOf('√');
-            int endIndex = s.indexOf(' ', startIndex + 2);
-            s = s.substring(0, startIndex)
-                    + Math.sqrt(Double.parseDouble(evaluateExpression(s.substring(startIndex + 2, endIndex))))
-                    + s.substring(endIndex);
         }
         s = operation(s, " ^ ", " ^ ");
         s = operation(s, " * ", " / ");
