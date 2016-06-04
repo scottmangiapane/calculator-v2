@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalculatorView {
     private Calculator calculator;
@@ -80,6 +81,16 @@ public class CalculatorView {
                             calculator.numOpNum('^');
                         if (input.equals("√"))
                             calculator.opNum('√');
+                        if (input.equals("sin"))
+                            calculator.opNum('s');
+                        if (input.equals("cos"))
+                            calculator.opNum('c');
+                        if (input.equals("tan"))
+                            calculator.opNum('t');
+                        if (input.equals("ln"))
+                            calculator.opNum('n');
+                        if (input.equals("log"))
+                            calculator.opNum('l');
                         if (input.equals("("))
                             calculator.parenthesisLeft();
                         if (input.equals(")"))
@@ -87,6 +98,14 @@ public class CalculatorView {
                     }
                 });
             }
+        this.buttons[4][0].setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                calculator.setText("");
+                Toast.makeText(activity, "Text cleared", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
         this.calculator = new Calculator(this);
     }
 
@@ -127,9 +146,11 @@ public class CalculatorView {
     }
 
     private String formatToDisplayMode(String s) {
-        return s.replace(" ", "_");
-        /*return s.replace(" ", "").replace("/", "÷").replace("*", "×").replace("-", "−")
-                .replace("×π", "π").replace("×e", "e").replace("×(", "(")
-                .replace("∞", "Infinity").replace("NaN", "Undefined");*/
+        //return s.replace(" ", "_");
+        return s.replace("/", "÷").replace("*", "×").replace("-", "−")
+                .replace("s ", "sin(").replace("c ", "cos(").replace("t ", "tan(")
+                .replace("n ", "ln(").replace("l ", "log(").replace("√ ", "√(")
+                .replace(" ", "").replace("∞", "Infinity").replace("NaN", "Undefined");
+        //.replace("×π", "π").replace("×e", "e").replace("×(", "(")
     }
 }
