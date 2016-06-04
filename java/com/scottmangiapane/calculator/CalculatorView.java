@@ -148,9 +148,8 @@ public class CalculatorView {
     private String formatToDisplayMode(String s) {
         //return s.replace(" ", "_");
         return s.replace("/", "÷").replace("*", "×").replace("-", "−")
-                .replace("s ", "sin(").replace("c ", "cos(").replace("t ", "tan(")
                 .replace("n ", "ln(").replace("l ", "log(").replace("√ ", "√(")
+                .replace("s ", "sin(").replace("c ", "cos(").replace("t ", "tan(")
                 .replace(" ", "").replace("∞", "Infinity").replace("NaN", "Undefined");
-        //.replace("×π", "π").replace("×e", "e").replace("×(", "(")
     }
 }

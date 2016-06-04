@@ -8,8 +8,13 @@ import java.text.DecimalFormat;
 public class EquationSolver {
     public String evaluateExpression(String s) {
         s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045")
-                .replace("s ", "sin ( ").replace("c ", "cos ( ").replace("t ", "tan ( ")
-                .replace("n ", "ln ( ").replace("l ", "log ( ").replace("√ ", "√ ( ");
+                .replace("n ", "ln ( ").replace("l ", "log ( ").replace("√ ", "√ ( ")
+                .replace("s ", "sin ( ").replace("c ", "cos ( ").replace("t ", "tan ( ");
+        s = step1(s);
+        return s;
+    }
+
+    private String step1(String s) {
         while (numOfOccurrences('(', s) > numOfOccurrences(')', s))
             s += ") ";
         while (s.contains("(")) {
@@ -26,14 +31,49 @@ public class EquationSolver {
                 }
             }
             s = s.substring(0, startIndex)
-                    + evaluateExpression(s.substring(startIndex + 2, endIndex))
+                    + step1(s.substring(startIndex + 2, endIndex))
                     + " " + s.substring(endIndex + 2);
         }
+        while (s.contains("ln")) {
+            int startIndex = s.indexOf("ln");
+            int endIndex = s.indexOf(' ', startIndex + 3);
+            s = s.substring(0, startIndex)
+                    + Math.log(Double.parseDouble(step1(s.substring(startIndex + 3, endIndex))))
+                    + s.substring(endIndex);
+        }
+        while (s.contains("log")) {
+            int startIndex = s.indexOf("log");
+            int endIndex = s.indexOf(' ', startIndex + 4);
+            s = s.substring(0, startIndex)
+                    + Math.log10(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + s.substring(endIndex);
+        }
+        while (s.contains("sin")) {
+            int startIndex = s.indexOf("sin");
+            int endIndex = s.indexOf(' ', startIndex + 4);
+            s = s.substring(0, startIndex)
+                    + Math.sin(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + s.substring(endIndex);
+        }
+        while (s.contains("cos")) {
+            int startIndex = s.indexOf("cos");
+            int endIndex = s.indexOf(' ', startIndex + 4);
+            s = s.substring(0, startIndex)
+                    + Math.cos(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + s.substring(endIndex);
+        }
+        while (s.contains("tan")) {
+            int startIndex = s.indexOf("tan");
+            int endIndex = s.indexOf(' ', startIndex + 4);
+            s = s.substring(0, startIndex)
+                    + Math.tan(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + s.substring(endIndex);
+        }
         while (s.contains("√")) {
-            int startIndex = s.lastIndexOf('√');
+            int startIndex = s.indexOf('√');
             int endIndex = s.indexOf(' ', startIndex + 2);
             s = s.substring(0, startIndex)
-                    + Math.sqrt(Double.parseDouble(evaluateExpression(s.substring(startIndex + 2, endIndex))))
+                    + Math.sqrt(Double.parseDouble(step1(s.substring(startIndex + 2, endIndex))))
                     + s.substring(endIndex);
         }
         while (s.contains("!")) {
@@ -52,13 +92,13 @@ public class EquationSolver {
             }
             s = s1 + " " + s2 + " " + s3;
         }
-        s = operation(s, " ^ ", " ^ ");
-        s = operation(s, " * ", " / ");
-        s = operation(s, " + ", " - ");
+        s = step2(s, " ^ ", " ^ ");
+        s = step2(s, " * ", " / ");
+        s = step2(s, " + ", " - ");
         return s;
     }
 
-    private String operation(String s, String op1, String op2) {
+    private String step2(String s, String op1, String op2) {
         s = " " + s + " ";
         while (s.contains(op1) || s.contains(op2)) {
             String operator;
