@@ -120,7 +120,8 @@ public class Calculator {
     }
 
     public void parenthesisRight() {
-        if (eq.numOf('(') > eq.numOf(')') && eq.isNumber(0))
+        if (eq.numOf('s') + eq.numOf('c') + eq.numOf('t') + eq.numOf('n') + eq.numOf('l')
+                + eq.numOf('√') + eq.numOf('(') > eq.numOf(')') && eq.isNumber(0))
             eq.add(")");
         update();
     }
