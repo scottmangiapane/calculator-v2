@@ -88,7 +88,7 @@ public class Equation extends ArrayList<String> {
             char c = s.charAt(0);
             if (s.length() > 1 && c == '-')
                 c = s.charAt(1);
-            if (c == '√' || c == '(' || c == '/' || c == '*' || c == '-' || c == '+' || c == '^') // todo optimize
+            if (c == '√' || c == 's' || c == 'c' || c == 't' || c == 'n' || c == 'l' || c == '(' || c == '/' || c == '*' || c == '-' || c == '+' || c == '^') // todo optimize
                 return true;
         }
         if (s.equals(""))

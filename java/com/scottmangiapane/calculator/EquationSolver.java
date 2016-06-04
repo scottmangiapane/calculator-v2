@@ -7,7 +7,9 @@ import java.text.DecimalFormat;
 
 public class EquationSolver {
     public String evaluateExpression(String s) {
-        s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045");
+        s = s.replace("π", "3.141592653589793").replace("e", "2.718281828459045")
+                .replace("s ", "sin ( ").replace("c ", "cos ( ").replace("t ", "tan ( ")
+                .replace("n ", "ln ( ").replace("l ", "log ( ").replace("√ ", "√ ( ");
         while (numOfOccurrences('(', s) > numOfOccurrences(')', s))
             s += ") ";
         while (s.contains("(")) {
