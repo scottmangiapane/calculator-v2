@@ -50,15 +50,17 @@ public class Calculator {
     }
 
     public void equal() {
-        String s;
-        try {
-            s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
-        } catch (Exception e) {
-            s = "Error";
+        if (!getText().equals("")) {
+            String s;
+            try {
+                s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
+            } catch (Exception e) {
+                s = "Error";
+            }
+            view.displayPrimaryScrollLeft(s);
+            view.displaySecondary("");
+            eq = new Equation();
         }
-        view.displayPrimaryScrollLeft(s);
-        view.displaySecondary("");
-        eq = new Equation();
     }
 
     public void num(char number) {
