@@ -1,19 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/display</item>
         <item name="colorPrimaryDark">@color/display</item>
         <item name="colorAccent">@color/operations</item>
+        <item name="advancedOperations">@color/advancedOperations</item>
+        <item name="operations">@color/operations</item>
     </style>
 
     <!-- Dark application theme. -->
-    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/display</item>
         <item name="colorPrimaryDark">@color/display</item>
         <item name="colorAccent">@color/operations</item>
+        <item name="advancedOperations">@color/advancedOperationsDark</item>
+        <item name="operations">@color/operationsDark</item>
     </style>
 
 </resources>
