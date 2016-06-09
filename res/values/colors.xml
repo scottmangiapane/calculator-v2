@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2abfd4</color>
-    <color name="colorAccent">#eeeeee</color>
-    <color name="advancedOperations">#e0e0e0</color>
+    <color name="advancedOperations">#eeeeee</color>
+    <color name="advancedOperationsDark">#424242</color>
+    <color name="display">#03a9f4</color>
+    <color name="operations">#fafafa</color>
+    <color name="operationsDark">#303030</color>
 </resources>
