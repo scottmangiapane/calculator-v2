@@ -33,13 +33,13 @@
 
                 <TextView
                     android:id="@+id/display_primary"
-                    style="@android:style/TextAppearance.Inverse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_margin"
                     android:layout_marginRight="@dimen/activity_margin"
                     android:gravity="bottom"
                     android:text=""
+                    android:textColor="@color/white"
                     android:textSize="@dimen/activity_display_text_port" />
             </LinearLayout>
         </HorizontalScrollView>
@@ -51,7 +51,6 @@
 
         <TextView
             android:id="@+id/display_secondary"
-            style="@android:style/TextAppearance.Inverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -59,6 +58,7 @@
             android:layout_marginRight="@dimen/activity_margin"
             android:gravity="top"
             android:text=""
+            android:textColor="@color/white"
             android:textSize="@dimen/activity_primary_text_port" />
 
         <Space
@@ -76,7 +76,7 @@
             android:id="@+id/advancedOperations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/advancedOperations"
+            android:background="?attr/advancedOperations"
             android:orientation="vertical"
             android:padding="@dimen/activity_margin">
 
@@ -245,7 +245,7 @@
             android:id="@+id/operations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/operations"
+            android:background="?attr/operations"
             android:orientation="horizontal"
             android:padding="@dimen/activity_margin">
 
