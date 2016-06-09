@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:background="@color/colorPrimary"
+        android:background="@color/display"
         android:elevation="4dp"
         android:orientation="vertical">
 
@@ -74,7 +74,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/hidden_panel"
+            android:id="@+id/advancedOperations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="4"
@@ -244,9 +244,11 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/operations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:background="@color/operations"
             android:orientation="horizontal"
             android:padding="@dimen/activity_margin">
 

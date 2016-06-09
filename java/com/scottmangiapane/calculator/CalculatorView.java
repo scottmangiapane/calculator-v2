@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CalculatorView {
     private Calculator calculator;
@@ -102,7 +101,6 @@ public class CalculatorView {
             @Override
             public boolean onLongClick(View v) {
                 calculator.setText("");
-                Toast.makeText(activity, "Text cleared", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
