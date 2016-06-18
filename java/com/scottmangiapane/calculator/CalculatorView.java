@@ -105,22 +105,21 @@ public class CalculatorView {
         this.buttons[4][0].setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                View display = activity.findViewById(R.id.display);
                 View displayOverlay = activity.findViewById(R.id.display_overlay);
                 View delete = activity.findViewById(R.id.text_view_delete);
                 // int radius = Math.max(display.getWidth(), display.getHeight()) / 2;
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
-                    int centerX = display.getMeasuredWidth();
-                    int centerY = display.getMeasuredHeight();
+                    int centerX = displayOverlay.getMeasuredWidth();
+                    int centerY = displayOverlay.getMeasuredHeight();
 
                     Animator circle = ViewAnimationUtils.createCircularReveal(
                             displayOverlay,
                             centerX, //display.getMeasuredWidth(),
                             centerY, //display.getMeasuredHeight(),
                             0,
-                            (int) Math.hypot(display.getWidth(), display.getHeight()));
+                            (int) Math.hypot(displayOverlay.getWidth(), displayOverlay .getHeight()));
                     circle.setDuration(250);
                     circle.addListener(new Animator.AnimatorListener() {
                         @Override
