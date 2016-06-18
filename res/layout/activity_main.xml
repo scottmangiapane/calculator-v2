@@ -99,7 +99,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="sin"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_cos"
@@ -109,7 +109,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="cos"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_tan"
@@ -119,7 +119,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="tan"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_ln"
@@ -129,7 +129,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="ln"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_log"
@@ -139,7 +139,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="log"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_factorial"
@@ -149,7 +149,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="!"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
         </LinearLayout>
 
         <LinearLayout
@@ -166,7 +166,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="π"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_e"
@@ -176,7 +176,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="e"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_exponent"
@@ -186,7 +186,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="^"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_start_parenthesis"
@@ -196,7 +196,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="("
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_end_parenthesis"
@@ -206,7 +206,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text=")"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
 
             <TextView
                 android:id="@+id/button_square_root"
@@ -216,7 +216,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="√"
-                android:textSize="@dimen/panel_2_button_text" />
+                android:textSize="@dimen/panel_2_button_text_port" />
         </LinearLayout>
     </LinearLayout>
 
@@ -242,7 +242,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="7"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_4"
@@ -252,7 +252,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="4"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_1"
@@ -262,7 +262,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="1"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_decimal"
@@ -272,7 +272,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="."
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
         </LinearLayout>
 
         <LinearLayout
@@ -289,7 +289,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="8"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_5"
@@ -299,7 +299,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="5"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_2"
@@ -309,7 +309,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="2"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_0"
@@ -319,7 +319,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
         </LinearLayout>
 
         <LinearLayout
@@ -336,7 +336,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="9"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_6"
@@ -346,7 +346,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="6"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_3"
@@ -356,7 +356,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="3"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_equals"
@@ -366,7 +366,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="="
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
         </LinearLayout>
 
         <LinearLayout
@@ -399,7 +399,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="÷"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_multiply"
@@ -409,7 +409,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="×"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_subtract"
@@ -419,7 +419,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="−"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
 
             <TextView
                 android:id="@+id/button_add"
@@ -429,7 +429,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="+"
-                android:textSize="@dimen/panel_1_button_text" />
+                android:textSize="@dimen/panel_1_button_text_port" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

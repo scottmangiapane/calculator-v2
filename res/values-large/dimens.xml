@@ -3,9 +3,11 @@
 
     <dimen name="display_primary_text_port">105sp</dimen>
     <dimen name="display_secondary_text_port">60sp</dimen>
-    <dimen name="panel_1_button_text">45sp</dimen>
-    <dimen name="panel_2_button_text">30sp</dimen>
+    <dimen name="panel_1_button_text_port">54sp</dimen>
+    <dimen name="panel_2_button_text_port">30sp</dimen>
 
     <dimen name="display_primary_text_land">75sp</dimen>
     <dimen name="display_secondary_text_land">45sp</dimen>
+    <dimen name="panel_1_button_text_land">45sp</dimen>
+    <dimen name="panel_2_button_text_land">39sp</dimen>
 </resources>
