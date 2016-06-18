@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="advancedOperations">#eeeeee</color>
-    <color name="advancedOperationsDark">#424242</color>
-    <color name="display">#2196F3</color>
-    <color name="operations">#fafafa</color>
-    <color name="operationsDark">#303030</color>
+    <color name="theme">#009688</color>
+    <color name="theme_dark">#00796b</color>
+    <color name="theme_accent">#1de9b6</color>
 
-    <color name="dark_gray">#EEEEEE</color>
+    <color name="panel_1_light">#fafafa</color>
+    <color name="panel_1_dark">#303030</color>
+
+    <color name="panel_2_light">#eeeeee</color>
+    <color name="panel_2_dark">#424242</color>
+
     <color name="white">#ffffff</color>
 </resources>
