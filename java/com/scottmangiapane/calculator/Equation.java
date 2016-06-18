@@ -14,9 +14,11 @@ public class Equation extends ArrayList<String> {
     public void setText(String text) {
         while (size() > 0)
             removeLast();
-        String[] sa = text.split(" ");
-        for (String s : sa)
-            add(s);
+        if (text.length() > 0) {
+            String[] sa = text.split(" ");
+            for (String s : sa)
+                add(s);
+        }
     }
 
     public void attachToLast(char c) {
@@ -58,7 +60,7 @@ public class Equation extends ArrayList<String> {
         String s = getRecent(i);
         if (s != null && s.length() > 0) {
             char c = s.charAt(0);
-            if (isRawNumber(i) || c == 'π' || c == 'e' || c == ')'|| c == '!')
+            if (isRawNumber(i) || c == 'π' || c == 'e' || c == ')' || c == '!')
                 return true;
         }
         return false;

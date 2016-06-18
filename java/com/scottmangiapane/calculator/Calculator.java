@@ -50,7 +50,6 @@ public class Calculator {
     }
 
     public void equal() {
-        if (!getText().equals("")) {
             String s;
             try {
                 s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
@@ -60,7 +59,6 @@ public class Calculator {
             view.displayPrimaryScrollLeft(s);
             view.displaySecondary("");
             eq = new Equation();
-        }
     }
 
     public void num(char number) {
