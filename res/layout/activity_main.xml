@@ -7,65 +7,79 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@color/display"
-        android:elevation="4dp"
-        android:orientation="vertical">
+        android:elevation="4dp">
 
-        <Space
+        <LinearLayout
+            android:id="@+id/display"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:orientation="vertical">
 
-        <HorizontalScrollView
-            android:id="@+id/display_hsv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
-
-            <LinearLayout
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="right">
+                android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/display_primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/activity_margin"
-                    android:layout_marginRight="@dimen/activity_margin"
-                    android:gravity="bottom"
-                    android:text=""
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/activity_display_text_port" />
-            </LinearLayout>
-        </HorizontalScrollView>
+            <HorizontalScrollView
+                android:id="@+id/display_hsv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
-        <Space
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right">
+
+                    <TextView
+                        android:id="@+id/display_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_margin"
+                        android:layout_marginRight="@dimen/activity_margin"
+                        android:gravity="bottom"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/activity_display_text_port" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/display_secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_marginRight="@dimen/activity_margin"
+                android:gravity="top"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_primary_text_port" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/display_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/display_secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="@dimen/activity_margin"
-            android:layout_marginRight="@dimen/activity_margin"
-            android:gravity="top"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="@dimen/activity_primary_text_port" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
+            android:alpha="0"
+            android:background="@color/white"
+            android:orientation="horizontal" />
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

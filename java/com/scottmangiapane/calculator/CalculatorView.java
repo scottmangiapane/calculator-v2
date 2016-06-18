@@ -1,8 +1,13 @@
 package com.scottmangiapane.calculator;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
@@ -56,7 +61,7 @@ public class CalculatorView {
                     public void onClick(View v) {
                         if (input.equals("."))
                             calculator.decimal();
-                        if (input.equals("DEL"))
+                        if (input.equals("←"))
                             calculator.delete();
                         if (Character.isDigit(input.charAt(0)))
                             calculator.digit(input.charAt(0));
@@ -100,7 +105,53 @@ public class CalculatorView {
         this.buttons[4][0].setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                calculator.setText("");
+                View display = activity.findViewById(R.id.display);
+                View displayOverlay = activity.findViewById(R.id.display_overlay);
+                View delete = activity.findViewById(R.id.text_view_delete);
+                // int radius = Math.max(display.getWidth(), display.getHeight()) / 2;
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+                    int centerX = display.getMeasuredWidth();
+                    int centerY = display.getMeasuredHeight();
+
+                    Animator circle = ViewAnimationUtils.createCircularReveal(
+                            displayOverlay,
+                            centerX, //display.getMeasuredWidth(),
+                            centerY, //display.getMeasuredHeight(),
+                            0,
+                            (int) Math.hypot(display.getWidth(), display.getHeight()));
+                    circle.setDuration(250);
+                    circle.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            calculator.setText("");
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+                            calculator.setText("");
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+                        }
+                    });
+
+                    ObjectAnimator fade = ObjectAnimator.ofFloat(displayOverlay, "alpha", 0f);
+                    fade.setInterpolator(new DecelerateInterpolator());
+                    fade.setDuration(250);
+
+                    AnimatorSet animatorSet = new AnimatorSet();
+                    animatorSet.playSequentially(circle, fade);
+
+                    displayOverlay.setAlpha(1);
+                    animatorSet.start();
+                }
                 return false;
             }
         });
