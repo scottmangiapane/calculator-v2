@@ -13,45 +13,44 @@ import android.widget.TextView;
 
 public class CalculatorView {
     private Calculator calculator;
-    private HorizontalScrollView hsv;
     private TextView displayPrimary;
     private TextView displaySecondary;
+    private HorizontalScrollView hsv;
     private TextView[][] buttons;
 
     public CalculatorView(final AppCompatActivity activity) {
+        displayPrimary = (TextView) activity.findViewById(R.id.display_primary);
+        displaySecondary = (TextView) activity.findViewById(R.id.display_secondary);
         hsv = (HorizontalScrollView) activity.findViewById(R.id.display_hsv);
-        this.displayPrimary = (TextView) activity.findViewById(R.id.display_primary);
-        this.displaySecondary = (TextView) activity.findViewById(R.id.display_secondary);
-        this.buttons = new TextView[][]{
-                {(TextView) activity.findViewById(R.id.text_view_7),
-                        (TextView) activity.findViewById(R.id.text_view_8),
-                        (TextView) activity.findViewById(R.id.text_view_9)},
-                {(TextView) activity.findViewById(R.id.text_view_4),
-                        (TextView) activity.findViewById(R.id.text_view_5),
-                        (TextView) activity.findViewById(R.id.text_view_6)},
-                {(TextView) activity.findViewById(R.id.text_view_1),
-                        (TextView) activity.findViewById(R.id.text_view_2),
-                        (TextView) activity.findViewById(R.id.text_view_3)},
-                {(TextView) activity.findViewById(R.id.text_view_decimal),
-                        (TextView) activity.findViewById(R.id.text_view_0),
-                        (TextView) activity.findViewById(R.id.text_view_equals)},
-                {(TextView) activity.findViewById(R.id.text_view_delete),
-                        (TextView) activity.findViewById(R.id.text_view_divide),
-                        (TextView) activity.findViewById(R.id.text_view_multiply),
-                        (TextView) activity.findViewById(R.id.text_view_subtract),
-                        (TextView) activity.findViewById(R.id.text_view_add)},
-                {(TextView) activity.findViewById(R.id.text_view_sin),
-                        (TextView) activity.findViewById(R.id.text_view_cos),
-                        (TextView) activity.findViewById(R.id.text_view_tan)},
-                {(TextView) activity.findViewById(R.id.text_view_ln),
-                        (TextView) activity.findViewById(R.id.text_view_log),
-                        (TextView) activity.findViewById(R.id.text_view_factorial)},
-                {(TextView) activity.findViewById(R.id.text_view_pi),
-                        (TextView) activity.findViewById(R.id.text_view_e),
-                        (TextView) activity.findViewById(R.id.text_view_exponent)},
-                {(TextView) activity.findViewById(R.id.text_view_start_parenthesis),
-                        (TextView) activity.findViewById(R.id.text_view_end_parenthesis),
-                        (TextView) activity.findViewById(R.id.text_view_square_root)}
+        buttons = new TextView[][]{
+                {(TextView) activity.findViewById(R.id.button_7),
+                        (TextView) activity.findViewById(R.id.button_8),
+                        (TextView) activity.findViewById(R.id.button_9)},
+                {(TextView) activity.findViewById(R.id.button_4),
+                        (TextView) activity.findViewById(R.id.button_5),
+                        (TextView) activity.findViewById(R.id.button_6)},
+                {(TextView) activity.findViewById(R.id.button_1),
+                        (TextView) activity.findViewById(R.id.button_2),
+                        (TextView) activity.findViewById(R.id.button_3)},
+                {(TextView) activity.findViewById(R.id.button_decimal),
+                        (TextView) activity.findViewById(R.id.button_0),
+                        (TextView) activity.findViewById(R.id.button_equals)},
+                {(TextView) activity.findViewById(R.id.button_divide),
+                        (TextView) activity.findViewById(R.id.button_multiply),
+                        (TextView) activity.findViewById(R.id.button_subtract),
+                        (TextView) activity.findViewById(R.id.button_add)},
+                {(TextView) activity.findViewById(R.id.button_sin),
+                        (TextView) activity.findViewById(R.id.button_cos),
+                        (TextView) activity.findViewById(R.id.button_tan)},
+                {(TextView) activity.findViewById(R.id.button_ln),
+                        (TextView) activity.findViewById(R.id.button_log),
+                        (TextView) activity.findViewById(R.id.button_factorial)},
+                {(TextView) activity.findViewById(R.id.button_pi),
+                        (TextView) activity.findViewById(R.id.button_e),
+                        (TextView) activity.findViewById(R.id.button_exponent)},
+                {(TextView) activity.findViewById(R.id.button_start_parenthesis),
+                        (TextView) activity.findViewById(R.id.button_end_parenthesis),
+                        (TextView) activity.findViewById(R.id.button_square_root)}
         };
         for (int i1 = 0; i1 < buttons.length; i1++)
             for (int i2 = 0; i2 < buttons[i1].length; i2++) {
@@ -102,11 +101,11 @@ public class CalculatorView {
                     }
                 });
             }
-        this.buttons[4][0].setOnLongClickListener(new View.OnLongClickListener() {
+        activity.findViewById(R.id.button_delete).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 View displayOverlay = activity.findViewById(R.id.display_overlay);
-                View delete = activity.findViewById(R.id.text_view_delete);
+                View delete = activity.findViewById(R.id.button_delete);
                 // int radius = Math.max(display.getWidth(), display.getHeight()) / 2;
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -154,7 +153,7 @@ public class CalculatorView {
                 return false;
             }
         });
-        this.calculator = new Calculator(this);
+        calculator = new Calculator(this);
     }
 
     public String getText() {

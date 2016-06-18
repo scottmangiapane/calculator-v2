@@ -26,7 +26,8 @@
             <HorizontalScrollView
                 android:id="@+id/display_hsv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -395,14 +396,20 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageView
+                <LinearLayout
                     android:id="@+id/button_delete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="?attr/backspace"
-                    android:textSize="@dimen/panel_1_button_text" />
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="?attr/backspace" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/button_divide"
