@@ -6,11 +6,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="activity_primary_text_port">32sp</dimen>
-    <dimen name="activity_secondary_text_port">18sp</dimen>
-    <dimen name="activity_display_text_port">50sp</dimen>
+    <dimen name="activity_display_text_port">75dp</dimen>
+    <dimen name="activity_primary_text_port">38dp</dimen>
+    <dimen name="activity_secondary_text_port">28dp</dimen>
 
-    <dimen name="activity_primary_text_land">25sp</dimen>
-    <dimen name="activity_secondary_text_land">18sp</dimen>
-    <dimen name="activity_display_text_land">33sp</dimen>
+    <dimen name="activity_display_text_land">40dp</dimen>
+    <dimen name="activity_primary_text_land">25dp</dimen>
+    <dimen name="activity_secondary_text_land">20dp</dimen>
 </resources>

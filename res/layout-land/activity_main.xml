@@ -7,70 +7,84 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@color/display"
-        android:elevation="4dp"
-        android:orientation="vertical">
+        android:elevation="4dp">
 
-        <Space
+        <LinearLayout
+            android:id="@+id/display"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:orientation="vertical">
 
-        <HorizontalScrollView
-            android:id="@+id/display_hsv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
-
-            <LinearLayout
+            <Space
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="right">
+                android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/display_primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/activity_margin"
-                    android:layout_marginRight="@dimen/activity_margin"
-                    android:gravity="bottom"
-                    android:text=""
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/activity_display_text_land" />
-            </LinearLayout>
-        </HorizontalScrollView>
+            <HorizontalScrollView
+                android:id="@+id/display_hsv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
-        <Space
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right">
+
+                    <TextView
+                        android:id="@+id/display_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_margin"
+                        android:layout_marginRight="@dimen/activity_margin"
+                        android:gravity="bottom"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/activity_display_text_land" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/display_secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_marginRight="@dimen/activity_margin"
+                android:gravity="top"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_primary_text_land" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/display_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/display_secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="@dimen/activity_margin"
-            android:layout_marginRight="@dimen/activity_margin"
-            android:gravity="top"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="@dimen/activity_primary_text_land" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
+            android:alpha="0"
+            android:background="@color/white"
+            android:orientation="horizontal" />
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -97,7 +111,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="sin"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_cos"
@@ -108,7 +122,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="cos"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_tan"
@@ -119,7 +133,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="tan"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
             </LinearLayout>
 
             <LinearLayout
@@ -137,7 +151,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="ln"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_log"
@@ -148,7 +162,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="log"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_factorial"
@@ -159,7 +173,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="!"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
             </LinearLayout>
 
             <LinearLayout
@@ -177,7 +191,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="π"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_e"
@@ -188,7 +202,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="e"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_exponent"
@@ -199,7 +213,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="^"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
             </LinearLayout>
 
             <LinearLayout
@@ -217,7 +231,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="("
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_end_parenthesis"
@@ -228,7 +242,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text=")"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_square_root"
@@ -239,7 +253,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="√"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
             </LinearLayout>
         </LinearLayout>
 
@@ -267,7 +281,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="7"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_4"
@@ -279,7 +293,7 @@
 
                     android:gravity="center"
                     android:text="4"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_1"
@@ -291,7 +305,7 @@
 
                     android:gravity="center"
                     android:text="1"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_decimal"
@@ -303,7 +317,7 @@
 
                     android:gravity="center"
                     android:text="."
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
             </LinearLayout>
 
             <LinearLayout
@@ -321,7 +335,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="8"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_5"
@@ -332,7 +346,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="5"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_2"
@@ -343,7 +357,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="2"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_0"
@@ -354,7 +368,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="0"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
             </LinearLayout>
 
             <LinearLayout
@@ -372,7 +386,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="9"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_6"
@@ -383,7 +397,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="6"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_3"
@@ -394,7 +408,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="3"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_equals"
@@ -405,7 +419,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="="
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
             </LinearLayout>
 
             <LinearLayout
@@ -424,7 +438,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="DEL"
-                    android:textSize="@dimen/activity_secondary_text_port" />
+                    android:textSize="@dimen/activity_secondary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_divide"
@@ -435,7 +449,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="÷"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_multiply"
@@ -446,7 +460,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="×"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_subtract"
@@ -457,7 +471,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="−"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
 
                 <TextView
                     android:id="@+id/text_view_add"
@@ -468,7 +482,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:text="+"
-                    android:textSize="@dimen/activity_primary_text_port" />
+                    android:textSize="@dimen/activity_primary_text_land" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

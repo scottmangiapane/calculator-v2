@@ -2,8 +2,10 @@
 <resources>
     <color name="advancedOperations">#eeeeee</color>
     <color name="advancedOperationsDark">#424242</color>
-    <color name="display">#03a9f4</color>
+    <color name="display">#2196F3</color>
     <color name="operations">#fafafa</color>
     <color name="operationsDark">#303030</color>
+
+    <color name="dark_gray">#EEEEEE</color>
     <color name="white">#ffffff</color>
 </resources>

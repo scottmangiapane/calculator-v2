@@ -5,10 +5,14 @@
     <dimen name="activity_margin_double">40dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="activity_primary_text_port">48sp</dimen>
-    <dimen name="activity_secondary_text_port">27sp</dimen>
-    <dimen name="activity_display_text_port">75sp</dimen>
-    <dimen name="activity_primary_text_land">37.5sp</dimen>
-    <dimen name="activity_secondary_text_land">27sp</dimen>
-    <dimen name="activity_display_text_land">50sp</dimen>
+
+    <dimen name="activity_del_text_port">25dp</dimen>
+    <dimen name="activity_display_text_port">80dp</dimen>
+    <dimen name="activity_primary_text_port">50dp</dimen>
+    <dimen name="activity_secondary_text_port">40dp</dimen>
+
+    <dimen name="activity_del_text_land">17dp</dimen>
+    <dimen name="activity_display_text_land">50dp</dimen>
+    <dimen name="activity_primary_text_land">35dp</dimen>
+    <dimen name="activity_secondary_text_land">30dp</dimen>
 </resources>
