@@ -144,7 +144,7 @@ public class CalculatorView {
                         });
                         ObjectAnimator fade = ObjectAnimator.ofFloat(displayOverlay, "alpha", 0f);
                         fade.setInterpolator(new DecelerateInterpolator());
-                        fade.setDuration(300);
+                        fade.setDuration(200);
                         AnimatorSet animatorSet = new AnimatorSet();
                         animatorSet.playSequentially(circle, fade);
                         displayOverlay.setAlpha(1);
