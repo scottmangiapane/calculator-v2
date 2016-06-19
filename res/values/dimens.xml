@@ -1,14 +1,12 @@
 <resources>
     <dimen name="standard_margin">16dp</dimen>
-    <dimen name="large_margin">32dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="display_primary_text_port">70sp</dimen>
     <dimen name="display_secondary_text_port">40sp</dimen>
     <dimen name="panel_1_button_text_port">36sp</dimen>
     <dimen name="panel_2_button_text_port">20sp</dimen>
 
-    <dimen name="display_primary_text_land">50sp</dimen>
+    <dimen name="display_primary_text_land">30sp</dimen>
     <dimen name="display_secondary_text_land">30sp</dimen>
     <dimen name="panel_1_button_text_land">30sp</dimen>
     <dimen name="panel_2_button_text_land">26sp</dimen>

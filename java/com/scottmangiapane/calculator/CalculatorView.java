@@ -113,7 +113,7 @@ public class CalculatorView {
         activity.findViewById(R.id.button_delete).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if (!getText().equals("")) {
+                if (!displayPrimary.getText().toString().trim().equals("")) {
                     final View displayOverlay = activity.findViewById(R.id.display_overlay);
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                         Animator circle = ViewAnimationUtils.createCircularReveal(
