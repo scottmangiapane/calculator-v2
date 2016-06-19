@@ -1,5 +1,7 @@
 <resources>
     <dimen name="standard_margin">24dp</dimen>
+    <dimen name="large_margin">48dp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
 
     <dimen name="display_primary_text_port">105sp</dimen>
     <dimen name="display_secondary_text_port">60sp</dimen>
