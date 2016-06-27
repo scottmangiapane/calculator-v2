@@ -1,7 +1,7 @@
 <resources>
     <dimen name="standard_margin">16dp</dimen>
 
-    <dimen name="display_primary_text_port">70sp</dimen>
+    <dimen name="display_primary_text_port">80sp</dimen>
     <dimen name="display_secondary_text_port">40sp</dimen>
     <dimen name="panel_1_button_text_port">36sp</dimen>
     <dimen name="panel_2_button_text_port">20sp</dimen>

@@ -3,7 +3,10 @@ package com.scottmangiapane.calculator;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
@@ -12,6 +15,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 public class CalculatorView {
+    private AppCompatActivity activity;
     private Calculator calculator;
     private TextView displayPrimary;
     private TextView displaySecondary;
@@ -118,8 +122,8 @@ public class CalculatorView {
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                         Animator circle = ViewAnimationUtils.createCircularReveal(
                                 displayOverlay,
-                                displayOverlay.getMeasuredWidth(),
-                                displayOverlay.getMeasuredHeight() / 2,
+                                displayOverlay.getMeasuredWidth() / 2,
+                                displayOverlay.getMeasuredHeight(),
                                 0,
                                 (int) Math.hypot(displayOverlay.getWidth(), displayOverlay.getHeight()));
                         circle.setDuration(300);
@@ -155,6 +159,7 @@ public class CalculatorView {
                 return false;
             }
         });
+        this.activity = activity;
         calculator = new Calculator(this);
     }
 
@@ -186,12 +191,49 @@ public class CalculatorView {
             public void onGlobalLayout() {
                 hsv.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 hsv.fullScroll(View.FOCUS_RIGHT);
+                if (canScroll(hsv) && displayPrimary.getTextSize() != displaySecondary.getTextSize()) {
+                    final TextView textView = displayPrimary;
+                    ValueAnimator animator = ValueAnimator.ofFloat(displayPrimary.getTextSize(),
+                            displaySecondary.getTextSize());
+                    animator.setDuration(300);
+                    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                            float animatedValue = (float) valueAnimator.getAnimatedValue();
+                            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, animatedValue);
+                        }
+                    });
+                    animator.start();
+                } else if (!canScroll(hsv)) {
+                    Log.w("########", "" + displayPrimary.getTextSize() + "\t\t" + displaySecondary.getTextSize());
+                    final TextView textView = displayPrimary;
+                    ValueAnimator animator = ValueAnimator.ofFloat(displayPrimary.getTextSize(),
+                            displaySecondary.getTextSize() * 2);
+                    animator.setDuration(300);
+                    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                            float animatedValue = (float) valueAnimator.getAnimatedValue();
+                            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, animatedValue);
+                        }
+                    });
+                    animator.start();
+                }
             }
         });
     }
 
     public void displaySecondary(String val) {
         displaySecondary.setText(formatToDisplayMode(val));
+    }
+
+    private boolean canScroll(HorizontalScrollView horizontalScrollView) {
+        View child = horizontalScrollView.getChildAt(0);
+        if (child != null) {
+            int childWidth = (child).getWidth();
+            return horizontalScrollView.getWidth() < childWidth + horizontalScrollView.getPaddingLeft() + horizontalScrollView.getPaddingRight();
+        }
+        return false;
     }
 
     private String formatToDisplayMode(String s) {
