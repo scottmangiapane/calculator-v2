@@ -1,13 +1,13 @@
 <resources>
     <dimen name="standard_margin">16dp</dimen>
 
-    <dimen name="display_primary_text_port">60sp</dimen>
-    <dimen name="display_secondary_text_port">36sp</dimen>
-    <dimen name="panel_1_button_text_port">36sp</dimen>
+    <dimen name="display_primary_text_port">56sp</dimen>
+    <dimen name="display_secondary_text_port">34dp</dimen>
+    <dimen name="panel_1_button_text_port">34sp</dimen>
     <dimen name="panel_2_button_text_port">20sp</dimen>
 
-    <dimen name="display_primary_text_land">30sp</dimen>
-    <dimen name="display_secondary_text_land">30sp</dimen>
-    <dimen name="panel_1_button_text_land">30sp</dimen>
-    <dimen name="panel_2_button_text_land">26sp</dimen>
+    <dimen name="display_primary_text_land">34sp</dimen>
+    <dimen name="display_secondary_text_land">34sp</dimen>
+    <dimen name="panel_1_button_text_land">24sp</dimen>
+    <dimen name="panel_2_button_text_land">20sp</dimen>
 </resources>
