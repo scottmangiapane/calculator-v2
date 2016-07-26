@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 public class SettingsActivity extends AppCompatActivity {
     @Override
@@ -15,7 +16,10 @@ public class SettingsActivity extends AppCompatActivity {
             setTheme(R.style.AppTheme_Dark);
         else
             setTheme(R.style.AppTheme_Light);
-        getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
+        setContentView(R.layout.activity_settings);
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getFragmentManager().beginTransaction().replace(R.id.content, new SettingsFragment()).commit();
     }
 
     public static class SettingsFragment extends PreferenceFragment {
