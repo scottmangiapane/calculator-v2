@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:entries="@array/primary_colors"
+        android:entryValues="@array/primary_colors_entries"
+        android:key="pref_theme"
+        android:title="Primary color" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="pref_dark"
+        android:summary="Make the background a dark gray color."
+        android:title="Dark theme" />
+</PreferenceScreen>
