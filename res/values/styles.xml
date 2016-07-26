@@ -19,20 +19,6 @@
         <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
     </style>
 
-    <!-- Light actionbar theme. -->
-    <style name="AppTheme.ActionBar.Light" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/theme</item>
-        <item name="colorPrimaryDark">@color/theme_dark</item>
-        <item name="colorAccent">@color/theme_accent</item>
-    </style>
-
-    <!-- Dark actionbar theme. -->
-    <style name="AppTheme.ActionBar.Dark" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/theme</item>
-        <item name="colorPrimaryDark">@color/theme_dark</item>
-        <item name="colorAccent">@color/theme_accent</item>
-    </style>
-
     <!-- Dialog theme. -->
     <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/theme_accent</item>
