@@ -1,4 +1,4 @@
-package com.scottmangiapane.calculator;
+package com.scottmangiapane.calculatorv2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
