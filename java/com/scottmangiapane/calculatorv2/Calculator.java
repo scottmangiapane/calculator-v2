@@ -1,4 +1,4 @@
-package com.scottmangiapane.calculator;
+package com.scottmangiapane.calculatorv2;
 
 public class Calculator {
     private CalculatorView view;

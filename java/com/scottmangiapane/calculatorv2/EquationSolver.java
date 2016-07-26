@@ -1,4 +1,4 @@
-package com.scottmangiapane.calculator;
+package com.scottmangiapane.calculatorv2;
 
 import org.apache.commons.math3.special.Gamma;
 

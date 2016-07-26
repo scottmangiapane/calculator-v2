@@ -1,4 +1,4 @@
-package com.scottmangiapane.calculator;
+package com.scottmangiapane.calculatorv2;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
