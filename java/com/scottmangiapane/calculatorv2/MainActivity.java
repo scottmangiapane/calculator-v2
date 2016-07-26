@@ -1,15 +1,24 @@
 package com.scottmangiapane.calculatorv2;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     private CalculatorView calculatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // setTheme(R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
+        SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+        if (sp != null && sp.getBoolean("pref_dark", false))
+            Log.w("########", "true");
+            // setTheme(R.style.AppTheme_Dark);
+        else
+            Log.w("########", "false");
+            // setTheme(R.style.AppTheme_Light);
         setContentView(R.layout.activity_main);
         calculatorView = new CalculatorView(this);
         if (savedInstanceState != null)

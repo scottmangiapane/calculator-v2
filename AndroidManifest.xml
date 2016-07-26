@@ -6,12 +6,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Light">
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.Light">
+            android:label="@string/app_name">
             <intent-filter>
                 <category android:name="android.intent.category.APP_CALCULATOR" />
             </intent-filter>
@@ -96,7 +96,6 @@
 
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.ActionBar.Light" />
+            android:label="@string/app_name" />
     </application>
 </manifest>
