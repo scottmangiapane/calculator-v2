@@ -6,12 +6,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme.Light">
+        android:supportsRtl="true">
 
         <activity
-            android:name="com.scottmangiapane.calculatorv2.MainActivity"
-            android:label="@string/app_name">
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.Light">
             <intent-filter>
                 <category android:name="android.intent.category.APP_CALCULATOR" />
             </intent-filter>
@@ -21,8 +21,7 @@
             android:name=".MainActivity-Blue"
             android:enabled="true"
             android:icon="@mipmap/ic_launcher_blue"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,8 +32,7 @@
             android:name=".MainActivity-Cyan"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_cyan"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -45,8 +43,7 @@
             android:name=".MainActivity-Gray"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_gray"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -57,8 +54,7 @@
             android:name=".MainActivity-Green"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_green"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -69,8 +65,7 @@
             android:name=".MainActivity-Indigo"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_indigo"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -81,8 +76,7 @@
             android:name=".MainActivity-Purple"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_purple"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -93,8 +87,7 @@
             android:name=".MainActivity-Red"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_red"
-            android:label="@string/app_name"
-            android:targetActivity="com.scottmangiapane.calculatorv2.MainActivity">
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -102,7 +95,8 @@
         </activity-alias>
 
         <activity
-            android:name="com.scottmangiapane.calculatorv2.SettingsActivity"
-            android:label="@string/app_name" />
+            android:name=".SettingsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.ActionBar.Light" />
     </application>
 </manifest>

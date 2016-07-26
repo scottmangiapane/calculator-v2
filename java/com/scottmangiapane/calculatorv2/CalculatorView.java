@@ -3,6 +3,7 @@ package com.scottmangiapane.calculatorv2;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -153,6 +154,12 @@ public class CalculatorView {
                         calculator.setText("");
                 }
                 return false;
+            }
+        });
+        activity.findViewById(R.id.settings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.startActivity(new Intent(activity, SettingsActivity.class));
             }
         });
         calculator = new Calculator(this);
