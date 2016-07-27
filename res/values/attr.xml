@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="themeColor" format="reference|color" />
-    <attr name="themeColorDark" format="reference|color" />
     <attr name="panel1" format="reference|color" />
     <attr name="panel2" format="reference|color" />
+
     <attr name="backspace" format="reference" />
 </resources>
