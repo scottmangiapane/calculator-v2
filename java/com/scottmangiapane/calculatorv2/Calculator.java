@@ -50,15 +50,17 @@ public class Calculator {
     }
 
     public void equal() {
-            String s;
-            try {
-                s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
-            } catch (Exception e) {
-                s = "Error";
-            }
-            view.displayPrimaryScrollLeft(s);
-            view.displaySecondary("");
-            eq = new Equation();
+        String s;
+        try {
+            s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
+        } catch (Exception e) {
+            s = "Error";
+        }
+        view.displayPrimaryScrollLeft(s);
+        view.displaySecondary("");
+        eq = new Equation();
+        if (!s.contains("∞") && !s.contains("Infinity") && !s.contains("NaN"))
+            eq.add(s);
     }
 
     public void num(char number) {

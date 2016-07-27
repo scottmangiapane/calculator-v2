@@ -140,7 +140,7 @@ public class EquationSolver {
     }
 
     public String formatNumber(String s) {
-        if (s.contains("Infinity") || s.contains("NaN"))
+        if (s.contains("∞") || s.contains("Infinity") || s.contains("NaN"))
             return s;
         DecimalFormat df = new DecimalFormat("#.########E0");
         df.setRoundingMode(RoundingMode.HALF_UP);
