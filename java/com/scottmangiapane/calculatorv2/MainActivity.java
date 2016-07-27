@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         if (sp != null && sp.getBoolean("pref_dark", false))
-            setTheme(R.style.AppTheme_Dark_Blue);
+            setTheme(R.style.AppTheme_Dark);
         else
-            setTheme(R.style.AppTheme_Light_Blue);
+            setTheme(R.style.AppTheme_Light);
         setContentView(R.layout.activity_main);
         calculatorView = new CalculatorView(this);
         if (savedInstanceState != null)

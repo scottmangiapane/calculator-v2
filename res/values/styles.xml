@@ -1,127 +1,26 @@
 <resources>
-    <!-- Light blue application theme. -->
-    <style name="AppTheme.Light.Blue" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/blue</item>
-        <item name="themeColorDark">@color/blue_dark</item>
+    <!-- Light application theme. -->
+    <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryDark">@color/theme_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
         <item name="panel1">@color/panel_1_light</item>
         <item name="panel2">@color/panel_2_light</item>
         <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
     </style>
 
-    <!-- Dark blue application theme. -->
-    <style name="AppTheme.Dark.Blue" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/blue</item>
-        <item name="themeColorDark">@color/blue_dark</item>
+    <!-- Dark application theme. -->
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryDark">@color/theme_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
         <item name="panel1">@color/panel_1_dark</item>
         <item name="panel2">@color/panel_2_dark</item>
         <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
     </style>
 
-    <!-- Light cyan application theme. -->
-    <style name="AppTheme.Light.Cyan" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/cyan</item>
-        <item name="themeColorDark">@color/cyan_dark</item>
-        <item name="panel1">@color/panel_1_light</item>
-        <item name="panel2">@color/panel_2_light</item>
-        <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
-    </style>
-
-    <!-- Dark cyan application theme. -->
-    <style name="AppTheme.Dark.Cyan" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/cyan</item>
-        <item name="themeColorDark">@color/cyan_dark</item>
-        <item name="panel1">@color/panel_1_dark</item>
-        <item name="panel2">@color/panel_2_dark</item>
-        <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
-    </style>
-
-    <!-- Light gray application theme. -->
-    <style name="AppTheme.Light.Gray" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/gray</item>
-        <item name="themeColorDark">@color/gray_dark</item>
-        <item name="panel1">@color/panel_1_light</item>
-        <item name="panel2">@color/panel_2_light</item>
-        <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
-    </style>
-
-    <!-- Dark gray application theme. -->
-    <style name="AppTheme.Dark.Gray" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/gray</item>
-        <item name="themeColorDark">@color/gray_dark</item>
-        <item name="panel1">@color/panel_1_dark</item>
-        <item name="panel2">@color/panel_2_dark</item>
-        <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
-    </style>
-
-    <!-- Light green application theme. -->
-    <style name="AppTheme.Light.Green" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/green</item>
-        <item name="themeColorDark">@color/green_dark</item>
-        <item name="panel1">@color/panel_1_light</item>
-        <item name="panel2">@color/panel_2_light</item>
-        <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
-    </style>
-
-    <!-- Dark green application theme. -->
-    <style name="AppTheme.Dark.Green" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/green</item>
-        <item name="themeColorDark">@color/green_dark</item>
-        <item name="panel1">@color/panel_1_dark</item>
-        <item name="panel2">@color/panel_2_dark</item>
-        <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
-    </style>
-
-    <!-- Light indigo application theme. -->
-    <style name="AppTheme.Light.Indigo" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/indigo</item>
-        <item name="themeColorDark">@color/indigo_dark</item>
-        <item name="panel1">@color/panel_1_light</item>
-        <item name="panel2">@color/panel_2_light</item>
-        <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
-    </style>
-
-    <!-- Dark indigo application theme. -->
-    <style name="AppTheme.Dark.Indigo" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/indigo</item>
-        <item name="themeColorDark">@color/indigo_dark</item>
-        <item name="panel1">@color/panel_1_dark</item>
-        <item name="panel2">@color/panel_2_dark</item>
-        <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
-    </style>
-
-    <!-- Light purple application theme. -->
-    <style name="AppTheme.Light.Purple" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/purple</item>
-        <item name="themeColorDark">@color/purple_dark</item>
-        <item name="panel1">@color/panel_1_light</item>
-        <item name="panel2">@color/panel_2_light</item>
-        <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
-    </style>
-
-    <!-- Dark purple application theme. -->
-    <style name="AppTheme.Dark.Purple" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/purple</item>
-        <item name="themeColorDark">@color/purple_dark</item>
-        <item name="panel1">@color/panel_1_dark</item>
-        <item name="panel2">@color/panel_2_dark</item>
-        <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
-    </style>
-
-    <!-- Light red application theme. -->
-    <style name="AppTheme.Light.Red" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="themeColor">@color/red</item>
-        <item name="themeColorDark">@color/red_dark</item>
-        <item name="panel1">@color/panel_1_light</item>
-        <item name="panel2">@color/panel_2_light</item>
-        <item name="backspace">@mipmap/ic_backspace_black_24dp</item>
-    </style>
-
-    <!-- Dark red application theme. -->
-    <style name="AppTheme.Dark.Red" parent="Theme.AppCompat.NoActionBar">
-        <item name="themeColor">@color/red</item>
-        <item name="themeColorDark">@color/red_dark</item>
-        <item name="panel1">@color/panel_1_dark</item>
-        <item name="panel2">@color/panel_2_dark</item>
-        <item name="backspace">@mipmap/ic_backspace_white_24dp</item>
+    <!-- Dialog theme. -->
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/theme_accent</item>
     </style>
 </resources>

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="?attr/themeColor"
+        android:background="@color/theme"
         android:elevation="4dp">
 
         <LinearLayout
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0"
-            android:background="?attr/themeColor"
+            android:background="@color/theme_dark"
             android:orientation="horizontal" />
 
         <ImageView
