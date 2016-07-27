@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -32,11 +33,10 @@ public class SettingsActivity extends AppCompatActivity {
             findPreference("pref_dark").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o) {
-                    getActivity().finish();
-                    Intent i = new Intent(getActivity(), SettingsActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(i);
+                    TaskStackBuilder.create(getActivity())
+                            .addNextIntent(new Intent(getActivity(), MainActivity.class))
+                            .addNextIntent(getActivity().getIntent())
+                            .startActivities();
                     return true;
                 }
             });
