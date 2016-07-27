@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         if (sp.getBoolean("pref_dark", false))
-            switch (sp.getString("pref_theme", "Blue")) {
+            switch (sp.getString("pref_theme", "0")) {
                 case "0":
                     setTheme(R.style.AppTheme_Dark_Blue);
                     break;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         else
-            switch (sp.getString("pref_theme", "Blue")) {
+            switch (sp.getString("pref_theme", "0")) {
                 case "0":
                     setTheme(R.style.AppTheme_Light_Blue);
                     break;
