@@ -94,9 +94,9 @@
             android:id="@+id/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_margin="@dimen/standard_margin"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="@dimen/standard_margin"
             android:src="@mipmap/ic_settings_white_24dp" />
     </FrameLayout>
 
