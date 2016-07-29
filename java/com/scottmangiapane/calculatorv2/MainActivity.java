@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private CalculatorView calculatorView;
+    private MainView mainView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,20 +55,20 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         setContentView(R.layout.activity_main);
-        calculatorView = new CalculatorView(this);
+        mainView = new MainView(this);
         if (savedInstanceState != null)
-            calculatorView.setText(savedInstanceState.getString("text"));
+            mainView.setText(savedInstanceState.getString("text"));
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putString("text", calculatorView.getText());
+        savedInstanceState.putString("text", mainView.getText());
     }
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        calculatorView.setText(savedInstanceState.getString("text"));
+        mainView.setText(savedInstanceState.getString("text"));
     }
 }
