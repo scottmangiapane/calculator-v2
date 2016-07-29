@@ -162,7 +162,7 @@ public class MainView {
                 activity.startActivity(new Intent(activity, SettingsActivity.class));
             }
         });
-        calculator = new Calculator(this);
+        calculator = new Calculator(activity, this);
     }
 
     public String getText() {

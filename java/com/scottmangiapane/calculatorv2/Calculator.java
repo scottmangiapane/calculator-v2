@@ -1,13 +1,15 @@
 package com.scottmangiapane.calculatorv2;
 
+import android.content.Context;
+
 public class Calculator {
     private MainView view;
     private EquationSolver equationSolver;
     private Equation eq;
 
-    public Calculator(MainView view) {
+    public Calculator(Context context, MainView view) {
         this.view = view;
-        this.equationSolver = new EquationSolver();
+        this.equationSolver = new EquationSolver(context);
         this.eq = new Equation();
         update();
     }
