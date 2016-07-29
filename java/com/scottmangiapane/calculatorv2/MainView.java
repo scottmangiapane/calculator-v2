@@ -12,13 +12,13 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
-public class CalculatorView {
+public class MainView {
     private Calculator calculator;
     private TextView displayPrimary;
     private TextView displaySecondary;
     private HorizontalScrollView hsv;
 
-    public CalculatorView(final AppCompatActivity activity) {
+    public MainView(final AppCompatActivity activity) {
         displayPrimary = (TextView) activity.findViewById(R.id.display_primary);
         displaySecondary = (TextView) activity.findViewById(R.id.display_secondary);
         hsv = (HorizontalScrollView) activity.findViewById(R.id.display_hsv);

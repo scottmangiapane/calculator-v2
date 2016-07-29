@@ -1,11 +1,11 @@
 package com.scottmangiapane.calculatorv2;
 
 public class Calculator {
-    private CalculatorView view;
+    private MainView view;
     private EquationSolver equationSolver;
     private Equation eq;
 
-    public Calculator(CalculatorView view) {
+    public Calculator(MainView view) {
         this.view = view;
         this.equationSolver = new EquationSolver();
         this.eq = new Equation();
