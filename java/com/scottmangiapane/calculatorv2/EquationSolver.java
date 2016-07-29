@@ -62,7 +62,7 @@ public class EquationSolver {
             int startIndex = s.indexOf("sin");
             int endIndex = s.indexOf(' ', startIndex + 4);
             double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
-            if (sp.getBoolean("pref_degrees", true))
+            if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
             s = s.substring(0, startIndex)
                     + Math.sin(num)
@@ -72,7 +72,7 @@ public class EquationSolver {
             int startIndex = s.indexOf("cos");
             int endIndex = s.indexOf(' ', startIndex + 4);
             double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
-            if (sp.getBoolean("pref_degrees", true))
+            if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
             s = s.substring(0, startIndex)
                     + Math.cos(num)
@@ -82,7 +82,7 @@ public class EquationSolver {
             int startIndex = s.indexOf("tan");
             int endIndex = s.indexOf(' ', startIndex + 4);
             double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
-            if (sp.getBoolean("pref_degrees", true))
+            if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
             s = s.substring(0, startIndex)
                     + Math.tan(num)

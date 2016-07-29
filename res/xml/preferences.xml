@@ -2,8 +2,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="General">
         <SwitchPreference
-            android:defaultValue="true"
-            android:key="pref_degrees"
+            android:defaultValue="false"
+            android:key="pref_radians"
             android:summary="Display angles as arc length divided by radius."
             android:title="Use radians" />
     </PreferenceCategory>

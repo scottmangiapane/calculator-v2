@@ -71,4 +71,11 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         mainView.setText(savedInstanceState.getString("text"));
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mainView != null)
+            mainView.setText(mainView.getText());
+    }
 }
