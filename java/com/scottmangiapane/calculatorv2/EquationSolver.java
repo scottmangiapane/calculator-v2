@@ -1,11 +1,21 @@
 package com.scottmangiapane.calculatorv2;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import org.apache.commons.math3.special.Gamma;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class EquationSolver {
+    private SharedPreferences sp;
+
+    public EquationSolver(Context context) {
+        this.sp = PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
     public String evaluateExpression(String s) {
         s = s.replace("π", "" + Math.PI).replace("e", "" + Math.E)
                 .replace("n ", "ln ( ").replace("l ", "log ( ").replace("√ ", "√ ( ")
@@ -51,22 +61,31 @@ public class EquationSolver {
         while (s.contains("sin")) {
             int startIndex = s.indexOf("sin");
             int endIndex = s.indexOf(' ', startIndex + 4);
+            double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
+            if (sp.getBoolean("pref_degrees", true))
+                num *= Math.PI / 180;
             s = s.substring(0, startIndex)
-                    + Math.sin(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + Math.sin(num)
                     + s.substring(endIndex);
         }
         while (s.contains("cos")) {
             int startIndex = s.indexOf("cos");
             int endIndex = s.indexOf(' ', startIndex + 4);
+            double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
+            if (sp.getBoolean("pref_degrees", true))
+                num *= Math.PI / 180;
             s = s.substring(0, startIndex)
-                    + Math.cos(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + Math.cos(num)
                     + s.substring(endIndex);
         }
         while (s.contains("tan")) {
             int startIndex = s.indexOf("tan");
             int endIndex = s.indexOf(' ', startIndex + 4);
+            double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
+            if (sp.getBoolean("pref_degrees", true))
+                num *= Math.PI / 180;
             s = s.substring(0, startIndex)
-                    + Math.tan(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + Math.tan(num)
                     + s.substring(endIndex);
         }
         while (s.contains("√")) {

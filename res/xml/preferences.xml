@@ -3,10 +3,9 @@
     <PreferenceCategory android:title="General">
         <SwitchPreference
             android:defaultValue="true"
-            android:summaryOff="Use radians instead of degrees."
-            android:summaryOn="Use degrees instead of radians."
             android:key="pref_degrees"
-            android:title="Trigonometric units" />
+            android:summary="Display angles as arc length divided by radius."
+            android:title="Use radians" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Appearance">
         <ListPreference
