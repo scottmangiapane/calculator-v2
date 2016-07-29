@@ -13,7 +13,7 @@
             android:entries="@array/theme_colors"
             android:entryValues="@array/theme_colors_entries"
             android:key="pref_theme"
-            android:summary="Chose a theme color for the app."
+            android:summary="Choose the theme color for the UI and launcher icon."
             android:title="Accent color" />
         <SwitchPreference
             android:defaultValue="false"
