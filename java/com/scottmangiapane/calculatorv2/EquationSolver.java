@@ -64,8 +64,11 @@ public class EquationSolver {
             double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
             if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
+            double ans = Math.sin(num);
+            if (Math.abs(ans) < 0.00000000001)
+                ans = 0;
             s = s.substring(0, startIndex)
-                    + Math.sin(num)
+                    + ans
                     + s.substring(endIndex);
         }
         while (s.contains("cos")) {
@@ -74,8 +77,11 @@ public class EquationSolver {
             double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
             if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
+            double ans = Math.cos(num);
+            if (Math.abs(ans) < 0.00000000001)
+                ans = 0;
             s = s.substring(0, startIndex)
-                    + Math.cos(num)
+                    + ans
                     + s.substring(endIndex);
         }
         while (s.contains("tan")) {
@@ -84,8 +90,11 @@ public class EquationSolver {
             double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
             if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
+            double ans = Math.tan(num);
+            if (Math.abs(ans) < 0.00000000001)
+                ans = 0;
             s = s.substring(0, startIndex)
-                    + Math.tan(num)
+                    + ans
                     + s.substring(endIndex);
         }
         while (s.contains("√")) {
