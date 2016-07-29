@@ -26,12 +26,9 @@ public class SettingsActivity extends AppCompatActivity {
                     setTheme(R.style.AppTheme_Dark_Green);
                     break;
                 case "4":
-                    setTheme(R.style.AppTheme_Dark_Indigo);
-                    break;
-                case "5":
                     setTheme(R.style.AppTheme_Dark_Purple);
                     break;
-                case "6":
+                case "5":
                     setTheme(R.style.AppTheme_Dark_Red);
                     break;
             }
@@ -50,12 +47,9 @@ public class SettingsActivity extends AppCompatActivity {
                     setTheme(R.style.AppTheme_Light_Green);
                     break;
                 case "4":
-                    setTheme(R.style.AppTheme_Light_Indigo);
-                    break;
-                case "5":
                     setTheme(R.style.AppTheme_Light_Purple);
                     break;
-                case "6":
+                case "5":
                     setTheme(R.style.AppTheme_Light_Red);
                     break;
             }
