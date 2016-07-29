@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference
-        android:defaultValue="0"
-        android:entries="@array/primary_colors"
-        android:entryValues="@array/primary_colors_entries"
-        android:key="pref_theme"
-        android:title="Primary color" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="pref_dark"
-        android:summary="Make the background a dark gray color."
-        android:title="Dark theme" />
+    <PreferenceCategory android:title="General">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:summaryOff="Use radians instead of degrees."
+            android:summaryOn="Use degrees instead of radians."
+            android:key="pref_degrees"
+            android:title="Trigonometric units" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Appearance">
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/theme_colors"
+            android:entryValues="@array/theme_colors_entries"
+            android:key="pref_theme"
+            android:summary="Chose a theme color for the app."
+            android:title="Accent color" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_dark"
+            android:summary="Make the background a dark gray color."
+            android:title="Dark theme" />
+    </PreferenceCategory>
 </PreferenceScreen>

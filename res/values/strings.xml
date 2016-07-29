@@ -1,21 +1,19 @@
 <resources>
     <string name="app_name">Calculator</string>
-    <string-array name="primary_colors">
+    <string-array name="theme_colors">
         <item>"Blue"</item>
         <item>"Cyan"</item>
         <item>"Gray"</item>
         <item>"Green"</item>
-        <item>"Indigo"</item>
         <item>"Purple"</item>
         <item>"Red"</item>
     </string-array>
-    <string-array name="primary_colors_entries">
+    <string-array name="theme_colors_entries">
         <item>"0"</item>
         <item>"1"</item>
         <item>"2"</item>
         <item>"3"</item>
         <item>"4"</item>
         <item>"5"</item>
-        <item>"6"</item>
     </string-array>
 </resources>

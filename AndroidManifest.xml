@@ -62,17 +62,6 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".MainActivity-Indigo"
-            android:enabled="false"
-            android:icon="@mipmap/ic_launcher_indigo"
-            android:targetActivity=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
             android:name=".MainActivity-Purple"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_purple"
