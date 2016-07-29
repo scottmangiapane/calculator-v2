@@ -67,6 +67,8 @@ public class EquationSolver {
             double ans = Math.sin(num);
             if (Math.abs(ans) < 0.00000000001)
                 ans = 0;
+            if (Math.abs(ans) > 10000000000.0)
+                ans /= 0;
             s = s.substring(0, startIndex)
                     + ans
                     + s.substring(endIndex);
@@ -80,6 +82,8 @@ public class EquationSolver {
             double ans = Math.cos(num);
             if (Math.abs(ans) < 0.00000000001)
                 ans = 0;
+            if (Math.abs(ans) > 10000000000.0)
+                ans /= 0;
             s = s.substring(0, startIndex)
                     + ans
                     + s.substring(endIndex);
@@ -93,6 +97,8 @@ public class EquationSolver {
             double ans = Math.tan(num);
             if (Math.abs(ans) < 0.00000000001)
                 ans = 0;
+            if (Math.abs(ans) > 10000000000.0)
+                ans /= 0;
             s = s.substring(0, startIndex)
                     + ans
                     + s.substring(endIndex);
