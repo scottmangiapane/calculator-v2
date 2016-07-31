@@ -1,18 +1,18 @@
 package com.scottmangiapane.calculatorv2;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 
 public class OnAppStart extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("SCORE_DATA", Context.MODE_PRIVATE);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         if (sp.getInt("launch_count", 0) == 5) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Rate Calculator v2")
