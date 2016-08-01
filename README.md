@@ -1,6 +1,16 @@
-# Calculator v2
+## Calculator v2
 
 Calculator v2 is an advanced calculator app with functions such as trigonometry, logs, factorials, and more while still maintaining a simple and easy to use interface.
+
+## Features
+
+<ul>
+<li>material design with themes</li>
+<li>calculates as you type</li>
+<li>supports multiple operations at once</li>
+<li>advanced operations</li>
+<li>scales to every screen size</li>
+</ul>
 
 ## Screenshots
 
