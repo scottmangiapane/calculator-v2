@@ -9,8 +9,10 @@ public class OnAppStart extends Application {
     public void onCreate() {
         super.onCreate();
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("launch_count", sp.getInt("launch_count", 0) + 1);
-        editor.apply();
+        if (sp.getInt("launch_count", 5) > 0) {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt("launch_count", sp.getInt("launch_count", 5) - 1);
+            editor.apply();
+        }
     }
 }

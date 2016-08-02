@@ -46,5 +46,12 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+        findPreference("pref_rate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                RateDialog.show(getActivity());
+                return false;
+            }
+        });
     }
 }
