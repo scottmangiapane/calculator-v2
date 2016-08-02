@@ -21,4 +21,10 @@
             android:summary="Make the background a dark gray color."
             android:title="Dark theme" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="Other">
+        <Preference
+            android:key="pref_rate"
+            android:summary="Share your opinion on the Google Play store."
+            android:title="Rate Calculator v2" />
+    </PreferenceCategory>
 </PreferenceScreen>
