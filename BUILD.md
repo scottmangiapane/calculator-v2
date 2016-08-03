@@ -3,9 +3,9 @@
 <ul>
 <li>Install the required tools</li>
 <li>Create a new project in Android Studio<br>Package name: com.scottmangiapane.calculatorv2</li>
-<li>Replace the contents of &lt;project&gt;/app/source/main/ with the contents of this repo</li>
-<li>Add dependencies to &lt;project&gt;/app/build.gradle</li>
-<li>Add libraries to &lt;project&gt;/libs/</li>
+<li>Replace the contents of &lt;project&gt;/app/source/main/ with this repo</li>
+<li>Add any dependencies to &lt;project&gt;/app/build.gradle</li>
+<li>Add any libraries to &lt;project&gt;/libs/</li>
 </ul>
 
 ## Required Tools
