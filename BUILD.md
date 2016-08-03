@@ -24,4 +24,4 @@
 
 ## Dependencies
 
-dependencies {<br>&emsp;compile 'com.android.support:appcompat-v7:24.1.1'<br>&emsp;compile files('commons-math3-3.6.1.jar')<br>}
+dependencies {<br>&emsp;compile 'com.android.support:appcompat-v7:24.1.1'<br>&emsp;compile files('libs/commons-math3-3.6.1.jar')<br>}
