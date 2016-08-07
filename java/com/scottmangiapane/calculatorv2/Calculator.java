@@ -1,14 +1,12 @@
 package com.scottmangiapane.calculatorv2;
 
-import android.content.Context;
-
 public class Calculator {
-    private MainView view;
+    private MainActivity context;
     private EquationSolver equationSolver;
     private Equation eq;
 
-    public Calculator(Context context, MainView view) {
-        this.view = view;
+    public Calculator(MainActivity context) {
+        this.context = context;
         this.equationSolver = new EquationSolver(context);
         this.eq = new Equation();
         update();
@@ -54,12 +52,12 @@ public class Calculator {
     public void equal() {
         String s;
         try {
-            s = equationSolver.formatNumber(equationSolver.evaluateExpression(getText()));
+            s = equationSolver.formatNumber(equationSolver.solve(getText()));
         } catch (Exception e) {
             s = "Error";
         }
-        view.displayPrimaryScrollLeft(s);
-        view.displaySecondary("");
+        context.displayPrimaryScrollLeft(s);
+        context.displaySecondary("");
         eq = new Equation();
         if (!s.contains("∞") && !s.contains("Infinity") && !s.contains("NaN"))
             eq.add(s);
@@ -131,13 +129,13 @@ public class Calculator {
     }
 
     private void update() {
-        view.displayPrimaryScrollRight(getText());
+        context.displayPrimaryScrollRight(getText());
         try {
-            view.displaySecondary(
-                    equationSolver.formatNumber(equationSolver.evaluateExpression(getText()))
+            context.displaySecondary(
+                    equationSolver.formatNumber(equationSolver.solve(getText()))
             );
         } catch (Exception e) {
-            view.displaySecondary("");
+            context.displaySecondary("");
         }
     }
 }

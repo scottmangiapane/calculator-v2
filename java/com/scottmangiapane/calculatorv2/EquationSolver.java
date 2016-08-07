@@ -16,15 +16,18 @@ public class EquationSolver {
         this.sp = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public String evaluateExpression(String s) {
+    public String solve(String s) {
         s = s.replace("π", "" + Math.PI).replace("e", "" + Math.E)
                 .replace("n ", "ln ( ").replace("l ", "log ( ").replace("√ ", "√ ( ")
                 .replace("s ", "sin ( ").replace("c ", "cos ( ").replace("t ", "tan ( ");
-        s = step1(s);
+        s = solveAdvancedOperators(s);
+        s = solveBasicOperators(s, " ^ ", " ^ ");
+        s = solveBasicOperators(s, " * ", " / ");
+        s = solveBasicOperators(s, " + ", " - ");
         return s;
     }
 
-    private String step1(String s) {
+    private String solveAdvancedOperators(String s) {
         while (numOfOccurrences('(', s) > numOfOccurrences(')', s))
             s += ") ";
         while (s.contains("(")) {
@@ -41,27 +44,27 @@ public class EquationSolver {
                 }
             }
             s = s.substring(0, startIndex)
-                    + step1(s.substring(startIndex + 2, endIndex))
+                    + solveAdvancedOperators(s.substring(startIndex + 2, endIndex))
                     + " " + s.substring(endIndex + 2);
         }
         while (s.contains("ln")) {
             int startIndex = s.indexOf("ln");
             int endIndex = s.indexOf(' ', startIndex + 3);
             s = s.substring(0, startIndex)
-                    + Math.log(Double.parseDouble(step1(s.substring(startIndex + 3, endIndex))))
+                    + Math.log(Double.parseDouble(solveAdvancedOperators(s.substring(startIndex + 3, endIndex))))
                     + s.substring(endIndex);
         }
         while (s.contains("log")) {
             int startIndex = s.indexOf("log");
             int endIndex = s.indexOf(' ', startIndex + 4);
             s = s.substring(0, startIndex)
-                    + Math.log10(Double.parseDouble(step1(s.substring(startIndex + 4, endIndex))))
+                    + Math.log10(Double.parseDouble(solveAdvancedOperators(s.substring(startIndex + 4, endIndex))))
                     + s.substring(endIndex);
         }
         while (s.contains("sin")) {
             int startIndex = s.indexOf("sin");
             int endIndex = s.indexOf(' ', startIndex + 4);
-            double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
+            double num = Double.parseDouble(solveAdvancedOperators(s.substring(startIndex + 4, endIndex)));
             if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
             double ans = Math.sin(num);
@@ -76,7 +79,7 @@ public class EquationSolver {
         while (s.contains("cos")) {
             int startIndex = s.indexOf("cos");
             int endIndex = s.indexOf(' ', startIndex + 4);
-            double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
+            double num = Double.parseDouble(solveAdvancedOperators(s.substring(startIndex + 4, endIndex)));
             if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
             double ans = Math.cos(num);
@@ -91,7 +94,7 @@ public class EquationSolver {
         while (s.contains("tan")) {
             int startIndex = s.indexOf("tan");
             int endIndex = s.indexOf(' ', startIndex + 4);
-            double num = Double.parseDouble(step1(s.substring(startIndex + 4, endIndex)));
+            double num = Double.parseDouble(solveAdvancedOperators(s.substring(startIndex + 4, endIndex)));
             if (!sp.getBoolean("pref_radians", false))
                 num *= Math.PI / 180;
             double ans = Math.tan(num);
@@ -107,7 +110,7 @@ public class EquationSolver {
             int startIndex = s.indexOf('√');
             int endIndex = s.indexOf(' ', startIndex + 2);
             s = s.substring(0, startIndex)
-                    + Math.sqrt(Double.parseDouble(step1(s.substring(startIndex + 2, endIndex))))
+                    + Math.sqrt(Double.parseDouble(solveAdvancedOperators(s.substring(startIndex + 2, endIndex))))
                     + s.substring(endIndex);
         }
         while (s.contains("!")) {
@@ -126,13 +129,10 @@ public class EquationSolver {
             }
             s = s1 + " " + s2 + " " + s3;
         }
-        s = step2(s, " ^ ", " ^ ");
-        s = step2(s, " * ", " / ");
-        s = step2(s, " + ", " - ");
         return s;
     }
 
-    private String step2(String s, String op1, String op2) {
+    private String solveBasicOperators(String s, String op1, String op2) {
         s = " " + s + " ";
         while (s.contains(op1) || s.contains(op2)) {
             String operator;
