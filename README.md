@@ -17,9 +17,9 @@ https://play.google.com/store/apps/details?id=com.scottmangiapane.calculatorv2
 * Install the required tools
 * Create a new project in Android Studio  
   Package name: com.scottmangiapane.calculatorv2
-* Replace the contents of /app/source/main/ with this repo
-* Add any libraries to /libs/
-* Add any dependencies to /app/build.gradle
+* Replace the contents of `/app/source/main/` with this repo
+* Add any libraries to `/libs/`
+* Add any dependencies to `/app/build.gradle`
 
 ## Build Requirements
 
