@@ -4,7 +4,7 @@ Calculator v2 is an advanced calculator app with functions such as trigonometry,
 
 ## Download
 
-https://play.google.com/store/apps/details?id=com.scottmangiapane.calculatorv2
+https://github.com/scottmangiapane/calculator-v2/releases
 
 ## Screenshots
 
