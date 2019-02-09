@@ -30,7 +30,6 @@ public class Calculator {
     }
 
     public void delete() {
-
         if (eq.getLast().length() > 1 && (eq.isRawNumber(0) || eq.getLast().charAt(0) == '-'))
             eq.detachFromLast();
         else
