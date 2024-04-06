@@ -1,6 +1,10 @@
 ## Calculator v2
 
-Calculator v2 is an advanced calculator app with functions such as trigonometry, logs, factorials, and more while still maintaining a simple and easy to use interface. **WARNING: This repository is no longer actively maintained.**
+Calculator v2 is an advanced calculator app with functions such as trigonometry, logs, factorials, and more while still maintaining a simple and easy to use interface.
+
+⚠️ WARNING ⚠️
+
+I made this app a long time ago as a college freshman. Although I'm proud of how it turned out and it _mostly_ works, it [has bugs](https://github.com/scottmangiapane/calculator-v2/issues/2) and could give wrong answers... I don't recommend using it for anything serious. Turns out writing a parser using only string manipulaton then including no test cases is bad.
 
 ## Download
 
